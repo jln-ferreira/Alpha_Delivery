@@ -2,38 +2,29 @@
 
 namespace App;
 
+use App\Address;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
-{
-    use Notifiable;
+class User extends Authenticatable{
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
+    //this is what is fillable`2
+    protected $fillable = ['name', 'phoneNumber', 'email', 'password'];
+    //will not count timestamp (createdAt)
+    public $timestamps = false;
+    //atribute to does not fill
+    protected $attributes = [
+        'active' => false
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // RELATIONSHIP
+    public function addresses()
+    {
+        //one Company has many Customer/Students
+        // Gonna seach his own id on TD student
+        //collun company_id 
+        return $this->hasMany(Address::class);
+    }
 }

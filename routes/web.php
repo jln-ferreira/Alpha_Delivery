@@ -12,7 +12,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//----------------============= LOGIN PAGE =============----------------
+//======================================================================
 
+//ACCESS FIRST PAGE LOGIN
 Route::get('/', function () {
-    return view('welcome');
+    return view('header.login');
 });
+
+//VERIFY IF THERE IS USER WITH THIS LOGIN
+Route::post('/login', 'LoginController@login');
+
+//VERIFY IF THERE IS USER WITH THIS LOGIN
+Route::get('/signin', function () {
+    return view('header.sign_up ');
+});
+
