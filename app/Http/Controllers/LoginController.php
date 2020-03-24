@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Address;
+use Mail;
 
 class LoginController extends Controller
 {
@@ -94,4 +95,48 @@ class LoginController extends Controller
         );
 		return redirect('/')->with($notification);
     }
+
+   	//SEND EMAIL TO USER HOW FORGOT HIS PASSWORD
+    public function sendEmail(Request $request){
+    	
+    	//CERTIFY IF THE EMAIL IS NEW ONE (NEW CUSTOMER)
+    	//fetch all users of the DB
+    	$users = User::all();
+
+    	// bring info what the user typed:
+    	$email = $request->get('email');
+
+    	//loop from all users in DB
+    	foreach ($users as $user) {
+    		//IS THERE EMAIL REGISTRED?
+    		if ($user->email == $email) {
+    			
+				//show toastr on top of the page (wrong)
+		        $notification = array(
+		            'message' => 'Your password was sent to your email, ' . $user->name,
+		            'alert-type' => 'success'
+		        );
+
+	        	// SEND THE EMAIL
+	        	// GONNA SEND ALL INFORMATION TO View > email > mail
+		        $to_name = $user->name;
+				$to_email = $request->get("email"); //EMAIL THAT INSERTED 
+				$data = array('name' => $user->name, 'body' => 'Your password is ' . $user->password);
+				Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
+				$message->to($to_email)->subject('Alpha Delivery - Password');
+				});
+
+				//return to main page
+    			return redirect('/')->with($notification);
+    		}
+    	}   	
+		//show toastr on top of the page (wrong)
+        $notification = array(
+            'message' => 'Sorry, there is no e-mail with this email',
+            'alert-type' => 'info'
+        );
+		return back()->with($notification);
+
+    }
+    
 }

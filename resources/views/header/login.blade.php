@@ -44,7 +44,7 @@
             Create an account?
         </span>
 
-        <a href="signin" class="txt2 hov1">
+        <a href="signups" class="txt2 hov1">
             Sign up
         </a>
     </div>

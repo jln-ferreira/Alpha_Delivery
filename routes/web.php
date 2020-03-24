@@ -20,14 +20,26 @@ Route::get('/', function () {
     return view('header.login');
 });
 
-//VERIFY IF THERE IS USER WITH THIS LOGIN
+//VERIFY IF THERE IS USER WITH THIS LOGIN -----> LOGIN
 Route::post('/login', 'LoginController@login');
 
+
+//SIGN UP ------------------------
 //VERIFY IF THERE IS USER WITH THIS LOGIN
-Route::get('/signin', function () {
+Route::get('/signup', function () {
     return view('header.sign_up ');
 });
 
 //SIGN UP -> NEW CUSTOMER
 Route::post('/newCustomer', 'LoginController@newCustomer');
+
+
+//FORGOT PASSWORD -----------------
+Route::get('/forgotPass', function () {
+    return view('header.forgotPass');
+});
+//Send email
+Route::post('/forgotPass/send', 'LoginController@sendEmail');
+
+
 
