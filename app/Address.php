@@ -10,6 +10,12 @@ class Address extends Model
     // link to a table
 	protected $table = 'addresses';
 
+	//this is what is fillable
+    protected $fillable = ['user_id', 'address', 'city', 'zipCode'];
+    //will not count timestamp (createdAt)
+    public $timestamps = false;
+
+
 	// RELATIONSHIP
     public function users()
     {

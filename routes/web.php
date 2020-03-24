@@ -28,3 +28,6 @@ Route::get('/signin', function () {
     return view('header.sign_up ');
 });
 
+//SIGN UP -> NEW CUSTOMER
+Route::post('/newCustomer', 'LoginController@newCustomer');
+

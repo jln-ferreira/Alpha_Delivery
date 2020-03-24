@@ -10,14 +10,11 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable{
 
-    //this is what is fillable`2
+    //this is what is fillable
     protected $fillable = ['name', 'phoneNumber', 'email', 'password'];
     //will not count timestamp (createdAt)
     public $timestamps = false;
-    //atribute to does not fill
-    protected $attributes = [
-        'active' => false
-    ];
+
 
     // RELATIONSHIP
     public function addresses()
