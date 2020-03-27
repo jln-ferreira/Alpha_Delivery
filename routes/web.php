@@ -54,4 +54,9 @@ Route::get('/forgotPass', function () {
 Route::post('/forgotPass/send', 'LoginController@sendEmail');
 
 
-
+//---------------============= WORKING PAGE =============---------------
+//======================================================================
+// AFTER LOGIN, SEND TO REAL PAGE
+Route::get('/delivery', function () {
+    return view('page.work_page');
+});

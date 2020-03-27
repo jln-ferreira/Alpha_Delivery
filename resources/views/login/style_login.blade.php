@@ -27,6 +27,6 @@
 </body>
 
     <!-- INCLUDE toastr and JQUERY -->
-    @include('tools.toolsUsedJavascript')
+    @include('tools.toastr')
 
 </html>

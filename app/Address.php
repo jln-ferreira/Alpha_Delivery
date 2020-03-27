@@ -19,7 +19,7 @@ class Address extends Model
 	// RELATIONSHIP
     public function users()
     {
-    	//many one user has many address (maybe)
+    	//many users has many address (maybe)
         return $this->belongsTo(User::class, 'user_id');
     }
 

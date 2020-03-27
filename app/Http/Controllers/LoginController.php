@@ -36,7 +36,7 @@ class LoginController extends Controller
 		            'message' => 'Welcome ' . $user->name,
 		            'alert-type' => 'success'
 		        );
-    			return back()->with($notificationRight);
+    			return redirect('/delivery')->with($notificationRight);
     		}
     	}
     	// go back to the same page '/' and insert a message Wrong User!
