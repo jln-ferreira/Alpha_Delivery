@@ -1,4 +1,4 @@
-@extends('header.style_login')
+@extends('login.style_login')
 <!-- FORM of the login. First page -->
 
 @section('loginContent')
@@ -44,7 +44,7 @@
             Create an account?
         </span>
 
-        <a href="signups" class="txt2 hov1">
+        <a href="signup" class="txt2 hov1">
             Sign up
         </a>
     </div>

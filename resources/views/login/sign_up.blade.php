@@ -1,4 +1,4 @@
-@extends('header.style_login')
+@extends('login.style_login')
 <!-- FORM of the login. First page -->
 
 @section('loginContent')
@@ -72,7 +72,7 @@
         <button type="submit" class="login100-form-btn">
             Sign Up
         </button>
-        <a class="btn btn-danger" href="./">Back</a> <!-- --------------------------------------------MARIANA HERE -->
+        <a class="btn btn-danger" href="account">Back</a> <!-- --------------------------------------------MARIANA HERE -->
     </div>
 </form>
 @stop

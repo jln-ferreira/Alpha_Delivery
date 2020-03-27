@@ -12,12 +12,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//----------------============= FIRST PAGE =============----------------
+//======================================================================
+// Route::get('/', function () {
+//     return view('pages.login');
+// });
+//ACCESS LOGIN
+Route::get('/', function () {
+    return view('page.front_page');
+});
+
+
+
 //----------------============= LOGIN PAGE =============----------------
 //======================================================================
 
-//ACCESS FIRST PAGE LOGIN
-Route::get('/', function () {
-    return view('header.login');
+//ACCESS LOGIN
+Route::get('/account', function () {
+    return view('login.login');
 });
 
 //VERIFY IF THERE IS USER WITH THIS LOGIN -----> LOGIN
@@ -27,7 +39,7 @@ Route::post('/login', 'LoginController@login');
 //SIGN UP ------------------------
 //VERIFY IF THERE IS USER WITH THIS LOGIN
 Route::get('/signup', function () {
-    return view('header.sign_up ');
+    return view('login.sign_up ');
 });
 
 //SIGN UP -> NEW CUSTOMER
@@ -36,7 +48,7 @@ Route::post('/newCustomer', 'LoginController@newCustomer');
 
 //FORGOT PASSWORD -----------------
 Route::get('/forgotPass', function () {
-    return view('header.forgotPass');
+    return view('login.forgotPass');
 });
 //Send email
 Route::post('/forgotPass/send', 'LoginController@sendEmail');
