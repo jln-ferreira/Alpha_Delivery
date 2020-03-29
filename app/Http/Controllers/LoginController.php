@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Address;
 use Mail;
@@ -28,9 +29,12 @@ class LoginController extends Controller
 
     	//loop from all users in DB
     	foreach ($users as $user) {
-    		//RIGHT USER EMAIL AND PASSWORD
-    		if ($user->email == $email && $user->password == $pass) {
+    		//RIGHT USER EMAIL AND PASSWORD(encrypted)
+    		if ($user->email == $email && Hash::check($pass, $user->password)) {
     			
+                //CREATE AUTHENTICATION! FINALY MODAFOCA
+                 auth()->login($user);
+
 		    	//show toastr on top of the page (Correct)
 		        $notificationRight = array(
 		            'message' => 'Welcome ' . $user->name,

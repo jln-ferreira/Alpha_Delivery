@@ -20,3 +20,9 @@ class Item extends Model
         return $this->belongsTo(Card::class, 'card_id');
     }
 }
+
+/*
+
+USER  ->   ADDRESS
+      ->   CARD     ->  ITEM
+*/

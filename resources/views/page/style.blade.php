@@ -41,6 +41,11 @@
           <li class="nav-item ">
             <a class="nav-link " href="#">Contact</a>
           </li>
+          @auth
+          <li class="nav-item ">
+            <a style="color: white;" class="nav-link" href="delivery">Delivery</a>
+          </li>
+          @endauth
         </ul>
       </div>
 
@@ -48,7 +53,16 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           
-            @yield('Account_Btn')
+          <!-- IF THERE IS SOMEONE LOGGED: -->
+          @auth
+          <!-- Button trigger modal -->
+          @include('page.model.model')
+
+          @else
+            <a href="account" type="button" class="btn btn-primary">
+              Login <!-- <span class="badge badge-light">9</span> -->
+            </a>
+          @endauth
 
         </li>
       </ul>

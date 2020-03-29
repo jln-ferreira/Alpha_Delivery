@@ -24,3 +24,10 @@ class Address extends Model
     }
 
 }
+
+
+/*
+
+USER  ->   ADDRESS
+      ->   CARD     ->  ITEM
+*/

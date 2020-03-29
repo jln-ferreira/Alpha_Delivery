@@ -45,7 +45,7 @@
     <!-- ADDRESS for Sign in -->
     <!-- FULL ADDRESS -->
     <div style="margin-top: 10px;" class="wrap-input100 validate-input">
-        <input class="input100" type="text" name="address" placeholder="Address" required>
+        <input class="input100" type="text" name="address" placeholder="Address">
         <!-- Animation -->
         <span class="focus-input100-1"></span>
         <span class="focus-input100-2"></span>
@@ -53,7 +53,7 @@
 
     <!-- CITY -->
     <div class="wrap-input100 validate-input">
-        <input class="input100" type="text" name="city" placeholder="City" required>
+        <input class="input100" type="text" name="city" placeholder="City">
         <!-- Animation -->
         <span class="focus-input100-1"></span>
         <span class="focus-input100-2"></span>
@@ -61,7 +61,7 @@
 
     <!-- ZIP CODE -->
     <div class="wrap-input100 validate-input">
-        <input class="input100" type="text" name="zipCode" placeholder="Zip Code" required>
+        <input class="input100" type="text" name="zipCode" placeholder="Zip Code">
         <!-- Animation -->
         <span class="focus-input100-1"></span>
         <span class="focus-input100-2"></span>

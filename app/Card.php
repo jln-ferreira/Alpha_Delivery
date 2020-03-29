@@ -30,3 +30,9 @@ class Card extends Model
         return $this->hasMany(Item::class);
     }
 }
+
+/*
+
+USER  ->   ADDRESS
+      ->   CARD     ->  ITEM
+*/

@@ -17,6 +17,13 @@ class User extends Authenticatable{
     public $timestamps = false;
 
 
+    //INCRYPT PASSWORD
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+
     // RELATIONSHIP
     public function addresses()
     {
@@ -30,4 +37,11 @@ class User extends Authenticatable{
         //collun user_id 
         return $this->hasMany(Card::class);
     }
+
 }
+
+/*
+
+USER  ->   ADDRESS
+      ->   CARD     ->  ITEM
+*/

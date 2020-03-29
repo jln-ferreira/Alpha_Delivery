@@ -25,3 +25,8 @@
   padding-top: 59px;
   text-align-last: center;
 }
+
+/*[MODAL when click name]*/
+.modal-backdrop {
+    z-index: 1020;
+}
