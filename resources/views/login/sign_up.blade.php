@@ -53,6 +53,14 @@
 
     <!-- CITY -->
     <div class="wrap-input100 validate-input">
+        <input class="input100" type="text" name="country" placeholder="Country">
+        <!-- Animation -->
+        <span class="focus-input100-1"></span>
+        <span class="focus-input100-2"></span>
+    </div>
+
+    <!-- CITY -->
+    <div class="wrap-input100 validate-input">
         <input class="input100" type="text" name="city" placeholder="City">
         <!-- Animation -->
         <span class="focus-input100-1"></span>

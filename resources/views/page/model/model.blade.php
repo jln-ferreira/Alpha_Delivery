@@ -38,6 +38,10 @@
             <input type="text" class="form-control" id="address" name="address" value="{{ auth()->user()->addresses->address }}">
           </div>
           <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" class="form-control" id="country" name="country" value="{{ auth()->user()->addresses->country }}">
+          </div>
+          <div class="form-group">
             <label for="city">City:</label>
             <input type="text" class="form-control" id="city" name="city" value="{{ auth()->user()->addresses->city }}">
           </div>

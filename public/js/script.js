@@ -5,7 +5,6 @@
 //           [We are Strategy
 //            We are Comunity
 //            We are ONE]
-
 var TxtType = function(el, toRotate, period) {
         this.toRotate = toRotate;
         this.el = el;
@@ -63,3 +62,25 @@ var TxtType = function(el, toRotate, period) {
         document.body.appendChild(css);
     };
 //---------------------------------------------------------------------------------
+
+//-------------------------------MY CARD PAGE--------------------------------------
+//=================================================================================
+//----------------------------[DATA TABLE MY CARD]---------------------------------
+$(document).ready(function() {
+
+    // DataTable initialisation
+    $('#myCard_DT').DataTable({
+        select: true,
+        responsive: true,
+        colReorder: true,
+        autoFill: true,
+        dom: 'Bfrtip'
+        }
+    );
+});
+
+
+
+
+
+

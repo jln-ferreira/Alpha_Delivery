@@ -8,7 +8,7 @@ use App\Address;
 
 class PageController extends Controller
 {
-
+	// --------------------------[WORK PAGE]------------------------------
 	//--------------------------------------------------------------------
 	//IF AUTHENTICATE (LOGIN), GO TO WORK PAGE, ELSE COMEBACK TO MAIN PAGE
     public function WorkPage(){
@@ -26,6 +26,7 @@ class PageController extends Controller
     }
     //--------------------------------------------------------------------
 
+    // -----------------------------[MODEL]-------------------------------
  	//RCEIVE A POST FROM MODEL AND EDITING USER
  	//EDDITING USER ------------------------------------------------------
     public function editUser(Request $request){
@@ -54,5 +55,23 @@ class PageController extends Controller
 
         //return to work page
         return redirect('/delivery')->with($notification);
+    }
+    //--------------------------------------------------------------------
+
+    // --------------------------[MY CARD PAGE]---------------------------
+	//--------------------------------------------------------------------
+	//GOES TO MY CARD PAGE. NEED TO AUTH FIRST
+	public function myCardsPage(){
+
+    	if(!auth()->check()){
+	    	//Didnt Login
+	        $notification = array(
+	            'message' => 'You have to login first!',
+	            'alert-type' => 'error'
+	        );
+
+    		return view('page.front_page')->with($notification);
+    	}
+    	return view('page.work_myCards');
     }
 }

@@ -72,3 +72,11 @@ Route::get('/logoutUser', function () {
 
 //MODIFY USER -> receive info of POST MODEL
 Route::patch('/editUser', 'PageController@editUser');
+
+
+
+
+//---------------============= MY CARD PAGE =============---------------
+//======================================================================
+//Send to page my Cards (AUTH)
+Route::get('/myCard', 'PageController@myCardsPage');

@@ -21,9 +21,14 @@
 /*////////////////////////////////////////////////////////////////*/
 
 /*--------------[ CONTENT WORKING PAGE ]-------------------*/
-#firstPart_Work{
-  padding-top: 59px;
-  text-align-last: center;
+#header_Work{
+  padding: 10px 30px;
+    text-align: right;
+}
+
+#namePage_Work{
+  padding-top: 20px;
+  text-align: center;
 }
 
 /*[MODAL when click name]*/
