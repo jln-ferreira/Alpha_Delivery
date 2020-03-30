@@ -61,3 +61,14 @@ Route::get('/delivery', 'PageController@WorkPage');
 // Route::get('/delivery', function () {
 //     return view('page.work_page');
 // });
+
+
+//--------===========[MODEL]===========--------
+// LOGOUT-------------
+Route::get('/logoutUser', function () {
+    auth()->logout();
+    return view('page.front_page');
+});
+
+//MODIFY USER -> receive info of POST MODEL
+Route::patch('/editUser', 'PageController@editUser');

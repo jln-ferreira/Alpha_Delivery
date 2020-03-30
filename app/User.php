@@ -27,9 +27,9 @@ class User extends Authenticatable{
     // RELATIONSHIP
     public function addresses()
     {
-        //one USER has many ADDRESS
+        //one USER has one ADDRESS
         //collun user_id 
-        return $this->hasMany(Address::class);
+        return $this->hasOne(Address::class);
     }
     public function cards()
     {
