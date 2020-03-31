@@ -78,6 +78,13 @@ $(document).ready(function() {
         }
     );
 });
+//=================================================================================
+//------------ [myCard show new card]-----------
+$(document).ready(function(){
+  $("#newCard_addRow").click(function(){
+    $("#new_Card_tr").toggle();
+  });
+});
 
 
 

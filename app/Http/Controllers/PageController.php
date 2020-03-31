@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\user;
 use App\Address;
+use App\Card;
 
 class PageController extends Controller
 {
@@ -73,5 +74,21 @@ class PageController extends Controller
     		return view('page.front_page')->with($notification);
     	}
     	return view('page.work_myCards');
+    }
+
+    //----- [Add new Card] -> Button save
+    public function add_newCard(Request $request){
+
+		//CEATE A NEW CARD
+	    $newCard = new Card([
+			'user_id'  => auth()->user()->id,
+			'name'	   => $request->get('name'),
+			'tips'	   => $request->get('tips'),
+			'deadline' => $request->get('deadline')
+    	]);
+		//save mySQL
+     	$newCard->save();
+
+     	return "FOI!";
     }
 }

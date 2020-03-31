@@ -4,6 +4,7 @@
 <!-- INCLUDE ALL FUNCTIONS OF THIS APP -->
 @include('tools.toolsFunctionPHP')
 
+
 @section('First_Content')
 <!-------------------------- [MODAL] ---------------------->
 <!-- CLICK NAME USER. POSSIBLE: MODIFY AND LOGOUT -->
@@ -43,10 +44,11 @@
 				<th>Description</th>
 				<th>Tips?</th>
 				<th>Deadline</th>
+				<!-- <th>Quantity</th> -->
 				<th>Status</th>
-				<th style="text-align:center;width:100px;">Add row <button type="button" class="btn btn-success">
-						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-					</button></th>
+				<th style="text-align:center;width:100px;">Add row
+					<i id="newCard_addRow" class="plus_FW fa fa-plus fa-xs"></i>
+				</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -56,17 +58,34 @@
 				<td>{{$card->name}}</td>
 				<td>{{$card->tips}}</td>
 				<td>{{$card->deadline}}</td>
+				<!-- <td>{{$card->itens->count()}}</td> -->
 				<td>{{active($card->active)}}</td>
-				<td>
-					<button type="butt	on" class="btn btn-primary btn-xs dt-edit" style="margin-right:16px;">
-						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-					</button>
-					<button type="button" class="btn btn-danger btn-xs dt-delete">
-						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-					</button>
+				<td style="text-align-last: center;">	
+					<i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i>
+					<i class="trash_FW fa fa-trash fa-xs" title="Delete"></i>
 				</td>
 			</tr>
 			@endforeach
+			
+			<!-- ADDING NEW CARD -->
+			<tr id="new_Card_tr" style="display: none;">
+				<form method="POST" action="add_newCard">
+					@csrf
+					<td><!-- <input type="text" name="user_id" style="display: none;" value="{{auth()->user()->id}}"> --></td>
+					<td><input type="text" name="name" required></td>
+					<td>
+						<select name="tips">
+						  <option value="No" selected>No</option>
+						  <option value="Yes">Yes</option>
+						</select>
+					</td>
+					<td><input type="date" name="deadline" min="{{date('Y-m-d')}}" required></td>
+					<td>1 = Active</td>
+					<td style="text-align-last: center;">	
+						<button type="submit" class="btn btn-success">Save</button>
+					</td>
+				</form>
+			</tr>
 		</tbody>
 	</table>
 

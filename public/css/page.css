@@ -35,3 +35,21 @@
 .modal-backdrop {
     z-index: 1020;
 }
+
+/*[FONT AWESOME IN DATA TBALE]*/
+/*[PEN]*/
+.pen_FW{
+  color: #1E90FF; 
+  padding-right: 10px;
+}
+
+/*[TRASH]*/
+.trash_FW{
+  color: red;
+  padding-left: 10px;
+}
+
+/*[PLUS]*/
+.plus_FW{
+   color: #228B22;
+}
