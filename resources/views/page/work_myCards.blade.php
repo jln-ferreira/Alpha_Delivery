@@ -62,7 +62,7 @@
 				<td>{{active($card->active)}}</td>
 				<td style="text-align-last: center;">	
 					<i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i>
-					<i class="trash_FW fa fa-trash fa-xs" title="Delete"></i>
+					<a href="delete_card/{{$card->id}}"><i class="trash_FW fa fa-trash fa-xs" title="Delete"></i></a>
 				</td>
 			</tr>
 			@endforeach
@@ -82,7 +82,7 @@
 					<td><input type="date" name="deadline" min="{{date('Y-m-d')}}" required></td>
 					<td>1 = Active</td>
 					<td style="text-align-last: center;">	
-						<button type="submit" class="btn btn-success">Save</button>
+						<a href="add_newCard" class="btn btn-success">Save</a>
 					</td>
 				</form>
 			</tr>

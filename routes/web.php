@@ -81,6 +81,8 @@ Route::patch('/editUser', 'PageController@editUser');
 //Send to page my Cards (AUTH)
 Route::get('/myCard', 'PageController@myCardsPage');
 
-//ADD new Card When click Save
 //[add new card]
 Route::post('/add_newCard', 'PageController@add_newCard');
+
+//[Delete card]
+Route::get('/delete_card/{card_id}', 'PageController@delete_Card');

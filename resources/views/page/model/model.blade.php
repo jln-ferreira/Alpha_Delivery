@@ -1,14 +1,14 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#personalInfo_Modal">
   {{ auth()->user()->name }}
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="personalInfo_Modal" tabindex="-1" role="dialog" aria-labelledby="personalInfo_Label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Profile</h5>
+        <h5 class="modal-title" id="personalInfo_Label">Profile</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -59,3 +59,48 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+<!-- Modal -->
+<!--           <div class="modal fade" id="newItens_Modal" tabindex="-1" role="dialog" aria-labelledby="newItens_Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="newItens_Label">Itens</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body"> -->
+                  <!------------------------------ INSIDE MODAL ----------------------------->
+<!--                   <table id="myItens_DT" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                  <tr>
+                    <th>Card Id</th>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Comments</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="text" class="form-control" name="card_id"></td>
+                    <td><input type="text" class="form-control" name="name" required></td>
+                    <td><input type="number" class="form-control" name="quantity" min="1" required></td>
+                    <td><input type="text" class="form-control" name="comment"></td>
+                    <td style="text-align-last: center;"> 
+                      <i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i>
+                      <i class="trash_FW fa fa-trash fa-xs" title="Delete"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+              </div>
+            </div>
+          </div> -->

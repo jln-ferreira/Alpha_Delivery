@@ -88,7 +88,24 @@ class PageController extends Controller
     	]);
 		//save mySQL
      	$newCard->save();
-
-     	return "FOI!";
+		$newCard->id;
+     	return back();
     }
+
+    //----- [DELETE Card] -> Button Trash
+    public function delete_Card($card_id){
+
+		Card::find($card_id)->delete();
+
+        //show toastr on top of the page (ALERT)
+        $notification = array(
+            'message' => 'Card deleted!',
+            'alert-type' => 'success'
+        );
+
+        return back()->with($notification);
+    }
+
+
+    
 }
