@@ -86,3 +86,8 @@ Route::post('/add_newCard', 'PageController@add_newCard');
 
 //[Delete card]
 Route::get('/delete_card/{card_id}', 'PageController@delete_Card');
+
+//[Modify card] -> go to page
+Route::get('/modify_card/{card_id}', 'PageController@modify_card');
+Route::patch('/update_card/{card_id}', 'PageController@update_card');
+

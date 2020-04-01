@@ -6,28 +6,6 @@
 
 
 @section('First_Content')
-<!-------------------------- [MODAL] ---------------------->
-<!-- CLICK NAME USER. POSSIBLE: MODIFY AND LOGOUT -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Row information</h4>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
 <!-- ----------------------MY CARDS---------------------- -->
 <!-- -------[NAME PAGE] -->
 <div id="namePage_Work" class="col-lg-12">
@@ -61,7 +39,7 @@
 				<!-- <td>{{$card->itens->count()}}</td> -->
 				<td>{{active($card->active)}}</td>
 				<td style="text-align-last: center;">	
-					<i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i>
+					<a href="modify_card/{{$card->id}}"><i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i></a>
 					<a href="delete_card/{{$card->id}}"><i class="trash_FW fa fa-trash fa-xs" title="Delete"></i></a>
 				</td>
 			</tr>
@@ -82,7 +60,7 @@
 					<td><input type="date" name="deadline" min="{{date('Y-m-d')}}" required></td>
 					<td>1 = Active</td>
 					<td style="text-align-last: center;">	
-						<a href="add_newCard" class="btn btn-success">Save</a>
+						<button class="save_FW btn btn-success"><i class="fa fa-save"></i></button>
 					</td>
 				</form>
 			</tr>

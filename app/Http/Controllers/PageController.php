@@ -75,6 +75,7 @@ class PageController extends Controller
     	}
     	return view('page.work_myCards');
     }
+    //-------------------------------------------
 
     //----- [Add new Card] -> Button save
     public function add_newCard(Request $request){
@@ -88,21 +89,56 @@ class PageController extends Controller
     	]);
 		//save mySQL
      	$newCard->save();
-		$newCard->id;
-     	return back();
+
+		//show toastr on top of the page (Sucess)
+        $notification = array(
+            'message' => 'Card created!',
+            'alert-type' => 'success'
+        );
+
+     	return back()->with($notification);
     }
+    //-------------------------------------------
 
     //----- [DELETE Card] -> Button Trash
     public function delete_Card($card_id){
 
 		Card::find($card_id)->delete();
 
-        //show toastr on top of the page (ALERT)
+        //show toastr on top of the page (Sucess)
         $notification = array(
             'message' => 'Card deleted!',
             'alert-type' => 'success'
         );
 
+        return back()->with($notification);
+    }
+    //-------------------------------------------
+
+    //----- [MODIFY Card] -> Button Pencil
+    //goes to my itens page
+    public function modify_card(Card $card_id){
+       
+        return view('page.work_myItens', compact('card_id'));
+    }
+    //-------------------------------------------
+
+    //------ [UPDATE Cards] -> Button save
+    public function update_card(Request $request, Card $card_id){
+
+        //use inputs to update mySQL
+        $card_id->name = $request->input('name');
+        $card_id->tips = $request->input('tips');
+        $card_id->deadline = $request->input('deadline');
+        $card_id->save();
+
+        //show toastr on top of the page (change Card)
+        $notification = array(
+            'message' => 'Card updated!',
+            'alert-type' => 'info'
+        );
+
+        //$studentId->update($request->all());
         return back()->with($notification);
     }
 
