@@ -81,6 +81,7 @@ Route::patch('/editUser', 'PageController@editUser');
 //Send to page my Cards (AUTH)
 Route::get('/myCard', 'PageController@myCardsPage');
 
+//[CARD]
 //[add new card]
 Route::post('/add_newCard', 'PageController@add_newCard');
 
@@ -91,3 +92,6 @@ Route::get('/delete_card/{card_id}', 'PageController@delete_Card');
 Route::get('/modify_card/{card_id}', 'PageController@modify_card');
 Route::patch('/update_card/{card_id}', 'PageController@update_card');
 
+//[ITEM]
+//[add new item]
+Route::post('/add_newItem', 'PageController@add_newItem');

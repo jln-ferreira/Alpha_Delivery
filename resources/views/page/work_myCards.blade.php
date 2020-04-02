@@ -22,7 +22,7 @@
 				<th>Description</th>
 				<th>Tips?</th>
 				<th>Deadline</th>
-				<!-- <th>Quantity</th> -->
+				<th>Quantity</th>
 				<th>Status</th>
 				<th style="text-align:center;width:100px;">Add row
 					<i id="newCard_addRow" class="plus_FW fa fa-plus fa-xs"></i>
@@ -36,7 +36,7 @@
 				<td>{{$card->name}}</td>
 				<td>{{$card->tips}}</td>
 				<td>{{$card->deadline}}</td>
-				<!-- <td>{{$card->itens->count()}}</td> -->
+				<td>{{$card->itens->count()}}</td>
 				<td>{{active($card->active)}}</td>
 				<td style="text-align-last: center;">	
 					<a href="modify_card/{{$card->id}}"><i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i></a>
@@ -58,6 +58,7 @@
 						</select>
 					</td>
 					<td><input type="date" name="deadline" min="{{date('Y-m-d')}}" required></td>
+					<td></td>
 					<td>1 = Active</td>
 					<td style="text-align-last: center;">	
 						<button class="save_FW btn btn-success"><i class="fa fa-save"></i></button>

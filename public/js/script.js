@@ -69,12 +69,26 @@ var TxtType = function(el, toRotate, period) {
 $(document).ready(function() {
 
     // DataTable initialisation
+    // --------CARDS-----------
     $('#myCard_DT').DataTable({
         select: true,
         responsive: true,
         colReorder: true,
         autoFill: true,
-        dom: 'Bfrtip'
+        dom: 'Bfrtip',
+        columnDefs: [{ "targets": [6], "searchable": false, "orderable": false, "visible": true }]
+        }
+    );
+
+    // DataTable initialisation
+    // ----------ITEM-----------
+    $('#myItens_DT').DataTable({
+        select: true,
+        responsive: true,
+        colReorder: true,
+        autoFill: true,
+        dom: 'Bfrtip',
+        columnDefs: [{ "targets": [4], "searchable": false, "orderable": false, "visible": true }]
         }
     );
 });
@@ -84,6 +98,12 @@ $(document).ready(function() {
 $(document).ready(function(){
   $("#newCard_addRow").click(function(){
     $("#new_Card_tr").toggle();
+  });
+});
+//------------ [myItem show new item]-----------
+$(document).ready(function(){
+  $("#newItem_addRow").click(function(){
+    $("#new_Item_tr").toggle();
   });
 });
 

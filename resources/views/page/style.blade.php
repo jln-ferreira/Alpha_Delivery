@@ -43,7 +43,7 @@
           </li>
           @auth
           <li class="nav-item ">
-            <a style="color: white;" class="nav-link" href="delivery">Delivery</a>
+            <a style="color: white;" class="nav-link" href="{{ url('delivery') }}">Delivery</a>
           </li>
           @endauth
         </ul>

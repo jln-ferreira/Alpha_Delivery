@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\user;
 use App\Address;
 use App\Card;
+use App\Item;
 
 class PageController extends Controller
 {
@@ -141,6 +142,29 @@ class PageController extends Controller
         //$studentId->update($request->all());
         return back()->with($notification);
     }
+
+    //----- [Add new Card] -> Button save
+    public function add_newItem(Request $request){
+
+		//CEATE A NEW ITEM
+	    $newItem = new Item([
+			'card_id'  => $request->get('card_id'),
+			'name'	   => $request->get('name'),
+			'quantity' => $request->get('quantity'),
+			'comment'  => $request->get('comment')
+    	]);
+		//save mySQL
+     	$newItem->save();
+
+		//show toastr on top of the page (Sucess)
+        $notification = array(
+            'message' => 'Item Added!',
+            'alert-type' => 'success'
+        );
+
+     	return back()->with($notification);
+    }
+    //-------------------------------------------
 
 
     

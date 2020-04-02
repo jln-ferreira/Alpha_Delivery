@@ -13,6 +13,9 @@ class Item extends Model
     //this is what is fillable
     protected $fillable = ['card_id', 'name', 'quantity', 'comment'];
 
+    //will not count timestamp (createdAt)
+    public $timestamps = false;
+
     // RELATIONSHIP
     public function cards()
     {

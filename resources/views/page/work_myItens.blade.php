@@ -9,12 +9,12 @@
 <!-- ----------------------MY ITENS---------------------- -->
 <!-- -------[NAME PAGE] -->
 <div id="namePage_Work" class="col-lg-12">
-	<h2>My Items</h2>
+	<small>for Card: {{$card_id->id}} - {{$card_id->name}}</small>
 </div> 
 
-<!-- ------------[DATA TABLE]--------------- -->
 <div class="container">
 
+	<!-- ------------[DATA TABLE MY CARD]--------------- -->
 	<table id="myCard_DT" class="table table-striped table-bordered" cellspacing="0" width="100%">
 		<thead>
 			<tr>
@@ -57,6 +57,54 @@
 			</tr>
 		</tbody>
 	</table>
+	<!-- ----------------------------------------------- -->
+	<br><br><hr>
+	<div style="text-align: center;" class="col-lg-12">
+		<h2>My Itens:</h2>
+	</div> 
+	<!-- ------------[DATA TABLE ITENS]--------------- -->
+	<table id="myItens_DT" class="table table-striped table-bordered" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>Order</th>
+				<th>Name</th>
+				<th>Quantity</th>
+				<th>Comment</th>
+				<th style="text-align:center;width:100px;">Add row
+					<i id="newItem_addRow" class="plus_FW fa fa-plus fa-xs"></i>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($card_id->itens as $item)
+			<tr>
+				<td>{{$item->id}}</td>
+				<td>{{$item->name}}</td>
+				<td>{{$item->quantity}}</td>
+				<td>{{$item->comment}}</td>
+				<td style="text-align-last: center;">	
+					<i class="trash_FW fa fa-trash fa-xs" title="Delete"></i>
+				</td>
+			</tr>
+			@endforeach
+			<!-- ADDING NEW ITEM -->
+			<tr id="new_Item_tr" style="display: none;">
+				<form method="POST" action="../add_newItem">
+					@csrf
+					<td></td>
+					<input type="hidden" name="card_id" value="{{$card_id->id}}">
+					<td><input type="text" name="name" required></td>
+					<td><input type="number" name="quantity" min="1" required></td>
+					<td><textarea cols="50" rows ="3" name="comment"></textarea></td>
+					<td style="text-align-last: center;">	
+						<button class="save_FW btn btn-success"><i class="fa fa-save"></i></button>
+					</td>
+				</form>
+			</tr>
+				 
+		</tbody>
+	</table>
+
 
 </div>
 
