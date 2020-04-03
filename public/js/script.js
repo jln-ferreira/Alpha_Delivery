@@ -68,6 +68,19 @@ var TxtType = function(el, toRotate, period) {
 //----------------------------[DATA TABLE MY CARD]---------------------------------
 $(document).ready(function() {
 
+
+    // DataTable initialisation
+    // ------ALL CARDS--------
+    $('#allCard_DT').DataTable({
+        select: true,
+        responsive: true,
+        colReorder: true,
+        autoFill: true,
+        dom: 'Bfrtip',
+        columnDefs: [{ "targets": [8], "searchable": false, "orderable": false, "visible": true }]
+        }
+    );
+
     // DataTable initialisation
     // --------CARDS-----------
     $('#myCard_DT').DataTable({

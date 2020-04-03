@@ -24,7 +24,11 @@ class PageController extends Controller
 
     		return view('page.front_page')->with($notification);
     	}
-    	return view('page.work_page');
+
+    	//take all user to show on the first page
+    	$all_Cards = Card::all();
+
+    	return view('page.work_page', compact('all_Cards'));
     }
     //--------------------------------------------------------------------
 
