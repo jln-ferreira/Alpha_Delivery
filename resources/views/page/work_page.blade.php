@@ -13,7 +13,11 @@
     </div> 
 </div>
 
-
+<!-- ----------------------All DELIVERY---------------------- -->
+<!-- -------[NAME PAGE] -->
+<div id="namePage_Work" class="col-lg-12">
+	<h2>Delivery</h2>
+</div> 
 
 <!-- ------------[DATA TABLE]--------------- -->
 <div class="container">
