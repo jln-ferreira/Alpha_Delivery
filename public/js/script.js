@@ -120,7 +120,33 @@ $(document).ready(function(){
   });
 });
 
+//---------------------------------WORK PAGE---------------------------------------
+//=================================================================================
+// ------- [Send the number of the order to MODEL] -------
+$(document).ready(function(){
 
+    var card_id;
+    var card_id_model = document.getElementById("number_order");
+
+    $(".card_id").click(function(){
+        card_id = $(this).text();
+
+        card_id_model.innerHTML = card_id;
+        
+        var test = '^['+ card_id +']';
+
+        $('#allcard_itens_DT').dataTable( {
+            //retrieve: true,
+            
+            destroy: true,
+            "searchCols": [
+                { "search": test, "regex": true }
+            ]
+        });
+
+    });
+        
+});
 
 
 
