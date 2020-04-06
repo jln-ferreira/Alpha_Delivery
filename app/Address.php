@@ -11,7 +11,7 @@ class Address extends Model
 	protected $table = 'addresses';
 
 	//this is what is fillable
-    protected $fillable = ['user_id', 'address', 'city', 'zipCode'];
+    protected $fillable = ['user_id', 'address','country', 'city', 'zipCode'];
     //will not count timestamp (createdAt)
     public $timestamps = false;
 

@@ -62,6 +62,10 @@ Route::get('/delivery', 'PageController@WorkPage');
 //     return view('page.work_page');
 // });
 
+//IF SOMEONE CLICK AND ACCEPT HELP WITH DELIVERY (CLICK S2)
+//---------------- [SEND EMAIL] ----------------
+Route::get('/groceries_email/{user_id}', 'PageController@accept_Email');
+
 
 //--------===========[MODEL]===========--------
 // LOGOUT-------------

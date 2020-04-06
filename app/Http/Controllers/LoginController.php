@@ -86,6 +86,7 @@ class LoginController extends Controller
      	$newAddress = new Address([
      		'user_id' => $newUser->id,
      		'address' => $request->get('address'),
+            'country' => $request->get('country'),
      		'city'	  => $request->get('city'),
      		'zipCode' => $request->get('zipCode')
      	]);
@@ -121,14 +122,28 @@ class LoginController extends Controller
 		            'alert-type' => 'success'
 		        );
 
+
+                // RANDOMIC PASS AS NEW ONE
+                $newPass = rand(100000, 999999);
+
+                
 	        	// SEND THE EMAIL
 	        	// GONNA SEND ALL INFORMATION TO View > email > mail
 		        $to_name = $user->name;
 				$to_email = $request->get("email"); //EMAIL THAT INSERTED 
-				$data = array('name' => $user->name, 'body' => 'Your password is ' . $user->password);
+				$data = array('name' => $user->name, 'body' => 'Your NEW password is ' . $newPass);
 				Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
 				$message->to($to_email)->subject('Alpha Delivery - Password');
 				});
+
+                //change for new password 
+                $changePass = User::where('email', '=', $email)->get();
+                $saveNewPass = User::find($changePass[0]->id);
+                $saveNewPass->password = $newPass;
+
+                $saveNewPass->save();
+
+
 
 				//return to main page
     			return redirect('/')->with($notification);

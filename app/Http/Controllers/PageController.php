@@ -7,6 +7,7 @@ use App\user;
 use App\Address;
 use App\Card;
 use App\Item;
+use Mail;
 
 class PageController extends Controller
 {
@@ -26,10 +27,14 @@ class PageController extends Controller
     	}
 
     	//take all user to show on the first page
-    	$all_Cards = Card::where('active', '=', 1)->get();
+    	$all_Cards = Card::where([
+    		['active', '=', 1],
+    		['deadline', '>=', date("Y-m-d")]
+    	])->get();
 
     	return view('page.work_page', compact('all_Cards'));
     }
+    // 1 800 9592059
     //--------------------------------------------------------------------
 
     // -----------------------------[MODEL]-------------------------------
@@ -171,6 +176,35 @@ class PageController extends Controller
     }
     //-------------------------------------------
 
+    //SEND EMAIL TO BOTH PARTS TO CONTACT THEIS SELFS 
+    //----------[ACCEPT HELP!]-------
+    public function accept_Email(User $user_id){
+    
+    	// SEND THE EMAIL
+    	// SEND INFORMATION TO WHO NEED HELP (CARD OWNER)
+    	//--------[card owner]--------
+    	$name_owner = $user_id->name;
+    	$to_email = $user_id->email;
+    	$name_user = auth()->user()->name;
+	    $phoneNumber_user = auth()->user()->phoneNumber;
+	    $email_user = auth()->user()->email;
+
+	    //--send email--
+		$data = array(
+			'name_owner' => $name_owner, 
+			'name_user' => $name_user,
+			'phoneNumber_user' => $phoneNumber_user,
+			'email_user' => $email_user
+		);
+
+		Mail::send('emails.mail_match_user', $data, function($message) use ($name_owner, $to_email) {
+			$message->to($to_email)->subject('Alpha Delivery - Groceries');
+		});
+
+		return 'foi';
+
+
+    }
 
     
 }
