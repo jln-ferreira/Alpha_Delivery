@@ -33,9 +33,7 @@
 				<th>Deadline</th>
 				<th>Quantity</th>
 				<th>Status</th>
-				<th style="text-align:center;width:100px;">
-					<i id="newCard_addRow" class="plus_FW fa fa-plus fa-xs"></i>
-				</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -49,9 +47,12 @@
 				<td>{{$card->deadline}}</td>
 				<td>{{$card->itens->count()}}</a></td>
 				<td>{{active($card->active)}}</td>
-				<td style="text-align-last: center;">	
-					<a href="#"><i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i></a>
-					<a href="#"><i class="trash_FW fa fa-trash fa-xs" title="Delete"></i></a>
+				<td style="text-align-last: center;">
+					@if($card->user_id == auth()->user()->id)	
+						<a href="#" data-toggle="tooltip" data-placement="right" title="Thats yours"><i class="fa fa-address-card"></i></a>
+					@else
+						<a href="#"><i class="fa fa-heart"></i></a>
+					@endif
 				</td>
 			</tr>
 			@endforeach

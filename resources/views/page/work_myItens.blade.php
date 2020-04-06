@@ -49,7 +49,14 @@
 						<input type="date" name="deadline" min="{{date('Y-m-d')}}" value="{{$card_id->deadline}}" required>
 					</td>
 					<td>{{$card_id->itens->count()}}</td>
-					<td>{{active($card_id->active)}}</td>
+					<td>
+						<select name="active">
+							<option value="0" <?php if($card_id->active == 0) echo "selected"?> >0 = DESATIVED</option>
+							<option value="1" <?php if($card_id->active == 1) echo "selected"?> >1 = ACTIVE</option>
+							<option value="2" <?php if($card_id->active == 2) echo "selected"?> >2 = CHOOSED BY</option>
+							<option value="3" <?php if($card_id->active == 3) echo "selected"?> >3 = DELIVERED</option>
+						</select>
+					</td>
 					<td style="text-align-last: center;">	
 						<button type="edit" class="save_FW btn btn-success"><i class="fa fa-save"></i></button>
 					</td>

@@ -143,9 +143,11 @@ $(document).ready(function(){
                 { "search": test, "regex": true }
             ]
         });
+    }); 
 
-    });
-        
+    //--------------IF SOMEONE SELECT OWN CARD--------------------
+    $('[data-toggle="tooltip"]').tooltip();   
+     
 });
 
 

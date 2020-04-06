@@ -26,7 +26,7 @@ class PageController extends Controller
     	}
 
     	//take all user to show on the first page
-    	$all_Cards = Card::all();
+    	$all_Cards = Card::where('active', '=', 1)->get();
 
     	return view('page.work_page', compact('all_Cards'));
     }
@@ -135,6 +135,7 @@ class PageController extends Controller
         $card_id->name = $request->input('name');
         $card_id->tips = $request->input('tips');
         $card_id->deadline = $request->input('deadline');
+        $card_id->active = $request->input('active');
         $card_id->save();
 
         //show toastr on top of the page (change Card)
