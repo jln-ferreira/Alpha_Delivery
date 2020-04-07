@@ -1,52 +1,85 @@
 <head>
+	<meta charset="UTF-8">
+
 	<!-- BOOTSTRAP -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style>
+		#header{
+		    text-align: center;
+		}
+		
+		#info{
+			text-align: center;
+    		color: #1E90FF;
+		}
+		
+		#content{
+			width: 50%;
+		    text-align-last: center;
+		    box-shadow: 5px 10px 18px #888888;
+		    border-radius: 9px;
+		}
+		
+		#body_full{
+			text-align: -webkit-center;
+		}
+
+
+		table {
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+
+		th, td {
+		  padding: 8px;
+		  text-align: left;
+		  border-bottom: 1px solid #ddd;
+		}
+
+		tr:hover {background-color:#f5f5f5;}
+	</style>
 	<!-- ---------------- -->
+
+	<title>Document</title>
 </head>
 <body>
 
 	<!-- HEADER -->
-	<div class="container">
-		<div class="col-lg-3"></div>
-		<div class="card col-lg-5">
-		    <div class="card-body">
-		    	<h3 style="text-align: -webkit-center;">Hello {{$name_owner}}!</h3>
-		    	<h4 style="text-align: -webkit-center;">We have a good news for you!</h4>
-		    	<p>{{$name_user}} choose your Card and he wants to help! UHUl!</p>
-		    </div>
-		</div>
-	</div>
+    <div id="header">
+    	<h3>Hello {{$name_owner}}!</h3>
+    	<h4>We have a good news for you!</h4>
+    	<p>{{$name_user}} choose your Card and he wants to help! <b>UHUL!</b></p>
+    </div>
 
 
 	<!-- INFO -->
-	<div class="modal-dialog" role="document">
-	<div class="modal-content">
-	  <div class="modal-header">
-	    <h3 class="modal-title" id="itens_Label">INFOMATION</h3>
-	  </div>
-	  <div class="modal-body">
-	    
-	  <!------------------------------ INSIDE MODAL ----------------------------->
-	    <!-- PERSONAL INFORMATION -->
-	    <table id="allcard_itens_DT" class="table table-striped table-bordered">
-	      <thead>
-	        <tr>
-	          <th>Name</th>
-	          <th>Phone Number</th>
-	          <th>Email</th>
-	        </tr>
-	      </thead>
-	      <tbody>
-	        <tr>
-	          <td>{{$name_user}}</td>
-	          <td>{{$phoneNumber_user}}</td>
-	          <td>{{$email_user}}</td>
-	        </tr>
-	      </tbody>
-	    </table>
-	  </div>
-	</div>
+	<div id="body_full">
+		<div id="content">
+		  <div class="info_content">
+		    <h2 id="info">INFOMATION</h2>
+		  </div>
+
+<hr>
+
+		  <!-- content -->
+		  <div>
+		    <table id="allcard_itens_DT">
+		      <thead>
+		        <tr>
+		          <th>Name</th>
+		          <th>Phone Number</th>
+		          <th>Email</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          	<td>{{$name_user}}</td>
+		          	<td>{{$phoneNumber_user}}</td>
+	          		<td>{{$email_user}}</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		  </div>
+
+		</div>
 	</div>
 </body>
