@@ -133,14 +133,14 @@ $(document).ready(function(){
 
         card_id_model.innerHTML = card_id;
         
-        var test = '^['+ card_id +']';
+        var regex_Card_id = '^['+ card_id +']';
 
         $('#allcard_itens_DT').dataTable( {
             //retrieve: true,
             
             destroy: true,
             "searchCols": [
-                { "search": test, "regex": true }
+                { "search": regex_Card_id, "regex": true }
             ]
         });
     }); 
@@ -149,7 +149,3 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
      
 });
-
-
-
-

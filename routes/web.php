@@ -64,7 +64,7 @@ Route::get('/delivery', 'PageController@WorkPage');
 
 //IF SOMEONE CLICK AND ACCEPT HELP WITH DELIVERY (CLICK S2)
 //---------------- [SEND EMAIL] ----------------
-Route::get('/groceries_email/{user_id}', 'PageController@accept_Email');
+Route::get('/groceries_email/{card_id}', 'PageController@accept_Email');
 
 
 //--------===========[MODEL]===========--------
