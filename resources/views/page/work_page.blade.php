@@ -51,7 +51,7 @@
 					@if($card->user_id == auth()->user()->id)	
 						<a href="#" data-toggle="tooltip" data-placement="right" title="Thats yours"><i class="fa fa-address-card"></i></a>
 					@else
-						<a href="groceries_email/{{$card->id}}"><i class="fa fa-heart"></i></a>
+						<a href="groceries_email/{{$card->id}}" onClick="return confirm('Are you sure you want to HELP this custommer?')"><i class="fa fa-heart"></i></a>
 					@endif
 				</td>
 			</tr>

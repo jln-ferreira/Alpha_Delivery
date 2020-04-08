@@ -166,7 +166,7 @@ class PageController extends Controller
 		//save mySQL
      	$newItem->save();
 
-		//show toastr on top of the page (Sucess)
+		//show toastr on top of the page (Success)
         $notification = array(
             'message' => 'Item Added!',
             'alert-type' => 'success'
@@ -175,65 +175,5 @@ class PageController extends Controller
      	return back()->with($notification);
     }
     //-------------------------------------------
-
-    //SEND EMAIL TO BOTH PARTS TO CONTACT THEIS SELFS 
-    //----------[ACCEPT HELP!]-------
-    public function accept_Email(Card $card_id){
-
-    	// SEND THE EMAIL
-    	// SEND INFORMATION TO WHO NEED HELP (CARD OWNER)
-    	//--------[card owner]--------
-    	$name_owner = $card_id->users->name;
-    	$to_email_owner = $card_id->users->email;					
-    	$name_user = auth()->user()->name;
-	    $phoneNumber_user = auth()->user()->phoneNumber;
-	    $email_user = auth()->user()->email;
-
-	    //--send email for CARD OWNER--
-		$data = array(
-			'name_owner' 	   => $name_owner, 
-			'name_user' 	   => $name_user,
-			'phoneNumber_user' => $phoneNumber_user,
-			'email_user' 	   => $email_user
-		);
-
-		// Mail::send('emails.mail_match_user', $data, function($message) use ($name_owner, $to_email_owner) {
-		// 	$message->to($to_email_owner)->subject('Alpha Delivery - Groceries');
-		// });
-
-		// SEND INFORMATION TO USER
-    	//--------[USER]--------
-    	$card_deadline 	   = $card_id->deadline;
-    	$phoneNumber_owner = $card_id->users->phoneNumber;
-    	$email_owner 	   = $card_id->users->email;
-    	$address_owner 	   = $card_id->users->addresses->address;
-		$country_owner     = $card_id->users->addresses->country;
-		$zipCode_owner     = $card_id->users->addresses->zipCode;
-		$all_itens  	   = $card_id->itens; 	//-- For foreach --
-
-
-	    //--send email for USER--
-		$data = array(
-			'name_owner' 		=> $name_owner,            //has it
-			'name_user' 		=> $name_user,			   //has it
-			'email_user' 		=> $email_user, 		   //has it
-			'card_deadline' 	=> $card_deadline,         //new
-			'phoneNumber_owner' => $phoneNumber_owner, 	   //new
-			'address_owner' 	=> $address_owner,         //new 
-			'country_owner' 	=> $country_owner,         //new 
-			'zipCode_owner' 	=> $zipCode_owner,         //new 
-			'card_id' 			=> $card_id->id,           //new 
-			'all_itens'		    => $all_itens
-		);
-
-		Mail::send('emails.mail_match_groceries', $data, function($message) use ($name_owner, $email_user) {
-			$message->to($email_user)->subject('Alpha Delivery - Groceries');
-		});
-
-		return 'foi';
-
-
-    }
-
-    
+ 
 }

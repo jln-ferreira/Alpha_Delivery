@@ -64,7 +64,7 @@ Route::get('/delivery', 'PageController@WorkPage');
 
 //IF SOMEONE CLICK AND ACCEPT HELP WITH DELIVERY (CLICK S2)
 //---------------- [SEND EMAIL] ----------------
-Route::get('/groceries_email/{card_id}', 'PageController@accept_Email');
+Route::get('/groceries_email/{card_id}', 'EmailController@accept_Email');
 
 
 //--------===========[MODEL]===========--------
@@ -99,3 +99,11 @@ Route::patch('/update_card/{card_id}', 'PageController@update_card');
 //[ITEM]
 //[add new item]
 Route::post('/add_newItem', 'PageController@add_newItem');
+
+//---------------============= [EMAIL] =============---------------
+//======================================================================
+// IS POSSIBLE TO ACCEPT OR DECLINE OF BOTH SIDES INSIDE DE EMAIL SEND
+//[Card delivered!]
+Route::get('/delivered/{card_id}/{user_id}', 'EmailController@delivered_Card');
+//[Card Give up!]
+Route::get('/giveup/{card_id}/{user_id}', 'EmailController@giveup_Card');
