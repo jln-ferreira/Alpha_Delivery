@@ -133,7 +133,7 @@ $(document).ready(function(){
 
         card_id_model.innerHTML = card_id;
         
-        var regex_Card_id = '^['+ card_id +']';
+        var regex_Card_id = "^\\s*"+ card_id +"\\s*$";
 
         $('#allcard_itens_DT').dataTable( {
             //retrieve: true,
