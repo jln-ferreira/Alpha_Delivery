@@ -116,9 +116,15 @@ class EmailController extends Controller
 		);
 
 		Mail::send('emails.mail_Certificate', $data, function($message) use ($card_owner_name, $card_owner_email) {
-			$message->to('m.vilela33@gmail.com')->subject('Alpha Delivery - Groceries');
+			$message->to($card_owner_email)->subject('Alpha Delivery - Groceries');
 		});
 
-		return 'foi porra';
+		//show toastr on top of the page (Success)
+        $notification = array(
+            'message' => 'Thank you to help the comunity!!',
+            'alert-type' => 'success'
+        );
+
+		return redirect('/')->with($notification);
     }
 }

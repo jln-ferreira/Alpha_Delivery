@@ -128,8 +128,19 @@ class PageController extends Controller
     //----- [MODIFY Card] -> Button Pencil
     //goes to my itens page
     public function modify_card(Card $card_id){
-       
-        return view('page.work_myItens', compact('card_id'));
+
+        // authentication do anyone change others info from others users
+        if ($card_id->user_id == auth()->user()->id) {
+            return view('page.work_myItens', compact('card_id'));
+        }
+
+        //show toastr on top of the page (Success)
+        $notification = array(
+            'message' => 'This is not your card buddy. Don`t do it. We are tracking you!',
+            'alert-type' => 'error'
+        );
+
+        return redirect('/')->with($notification);
     }
     //-------------------------------------------
 
