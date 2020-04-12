@@ -1,7 +1,7 @@
 /*--------------[ FIRST CONTENT OF THE FRONT PAGE ]-------------------*/
-/*[MAIN CONTENT]*/
+/*[------------MAIN CONTENT WITH IMAGE -------------]*/
 #First_Content{
-  margin-top: 59px;
+  margin-top: 58px;
 }
 
 /*[ALL HEADER TARGET]*/
@@ -10,13 +10,58 @@
     padding-bottom: 20px;
 }
 
+#content_fullHeader{
+    position: relative;
+}
+
 /*[WE ARE ONE]*/
 #theOne{
-  color: #ff2d20;
+  color: white;
   text-align: center;
   font-size: 100px;
   padding: 50px 0 100px;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
+/*[IMAGE OF FORNT PAGE]*/
+#front_img{
+  width: 100%;
+}
+
+/*-----[FOR ALL CONTENT AND INFORMATION]-----*/
+.contents{
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.info_content{
+  text-align: left;
+}
+
+.content_square{
+  text-align: -webkit-center;
+}
+    
+/*---------[ABOUT US]---------*/
+#aboutUs{
+  background-color: rgba(204, 238, 255, 0.3);
+}
+
+
+@media only screen and (max-width: 1220px) {
+  #theOne{
+    font-size: 100px;
+    padding: 50px 0 100px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 
 /*////////////////////////////////////////////////////////////////*/
 

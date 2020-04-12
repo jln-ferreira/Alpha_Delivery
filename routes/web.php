@@ -107,3 +107,6 @@ Route::post('/add_newItem', 'PageController@add_newItem');
 Route::get('/delivered/{card_id}/{user_id}', 'EmailController@delivered_Card');
 //[Card Give up!]
 Route::get('/giveup/{card_id}/{user_id}', 'EmailController@giveup_Card');
+
+// ----- [CONTACT BY EMAIL] -----
+Route::POST('/contact', 'EmailController@contact');

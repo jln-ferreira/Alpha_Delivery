@@ -127,4 +127,69 @@ class EmailController extends Controller
 
 		return redirect('/')->with($notification);
     }
+
+    // GIVE UP DELIVERY
+    // ------[email - GIVE UP delivery]------
+    public function giveup_Card(Card $card_id, User $user_id){
+    	//change the card to 3 - DELIVERED
+		$card_id->active = 1;
+		$card_id->save();
+
+		//SEND CANCELATION
+    	//--------[VARIABLE]--------
+    	$card_owner_name  = $card_id->users->name;
+    	$card_owner_email = $card_id->users->email;
+
+		//--------[USER]--------
+	    //--send email for USER--
+		$data = array(
+			'card_owner_name'  => $card_owner_name
+		);
+
+		Mail::send('emails.user_giveup', $data, function($message) use ($card_owner_name, $card_owner_email) {
+			$message->to($card_owner_email)->subject('Alpha Delivery - Groceries');
+		});
+
+		//show toastr on top of the page (Success)
+        $notification = array(
+            'message' => 'Hope you can help us other time.',
+            'alert-type' => 'success'
+        );
+
+		return redirect('/')->with($notification);
+    }
+
+
+    // CONTACT FROM FRONT PAGE
+    public function contact(Request $request){
+
+    	//--------[VARIABLE]--------
+    	$name_Contact  	  = $request->get('name');
+    	$email_Contact 	  = $request->get('email');
+    	$message_Contact  = $request->get('message');
+    	$name_to 		  = 'Grouse Delivery';
+    	$email_to         = 'grouse.delivery@gmail.com';
+
+		//--------[USER]--------
+	    //--send email for USER--
+		$data = array(
+			'name_Contact'     => $name_Contact,
+			'email_Contact'    => $email_Contact,
+			'message_Contact'  => $message_Contact
+
+		);
+
+		Mail::send('emails.contact', $data, function($message) use ($name_to, $email_to) {
+			$message->to($email_to)->subject('Alpha Delivery - Contact');
+		});
+
+		//show toastr on top of the page (Success)
+        $notification = array(
+            'message' => 'Thank you for the contact!',
+            'alert-type' => 'success'
+        );
+
+		return redirect('/')->with($notification);
+    }
+
 }
