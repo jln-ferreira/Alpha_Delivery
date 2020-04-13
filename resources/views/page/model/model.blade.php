@@ -54,7 +54,7 @@
 
           <div class="modal-footer">
             <button type="edit" class="btn btn-primary">Save changes</button>
-            <a href="logoutUser" style="color: white;" type="button" class="btn btn-danger">Logout</a>
+            <a href="/Alpha_Delivery/logoutUser" style="color: white;" type="button" class="btn btn-danger">Logout</a>
           </div>
         </form>
       </div>

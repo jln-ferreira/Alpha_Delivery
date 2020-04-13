@@ -186,5 +186,20 @@ class PageController extends Controller
      	return back()->with($notification);
     }
     //-------------------------------------------
+
+    //----- [DELETE Item] -> Button Trash
+    public function delete_Item($item_id){
+
+        Item::find($item_id)->delete();
+
+        //show toastr on top of the page (Sucess)
+        $notification = array(
+            'message' => 'Item deleted!',
+            'alert-type' => 'success'
+        );
+
+        return back()->with($notification);
+    }
+    //-------------------------------------------
  
 }

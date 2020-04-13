@@ -97,7 +97,7 @@
 				<td>{{$item->quantity}}</td>
 				<td>{{$item->comment}}</td>
 				<td style="text-align-last: center;">	
-					<i class="trash_FW fa fa-trash fa-xs" title="Delete"></i>
+					<a href="../delete_item/{{$item->id}}"><i class="trash_FW fa fa-trash fa-xs" title="Delete"></i></a>
 				</td>
 			</tr>
 			@endforeach

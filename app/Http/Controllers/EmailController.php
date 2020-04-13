@@ -98,11 +98,13 @@ class EmailController extends Controller
     	$card_user_name   = $user_id->name;
     	$card_owner_email = $card_id->users->email;
     	$card_user_email  = $user_id->email;
+    	$pathToFile		  = 'public/img/Award.jpg';
 
 		//--------[USER]--------
 	    //--send email for USER--
 		$data = array(
-			'name_award'  => $card_user_name
+			'name_award'  => $card_user_name,
+			'pathToFile' => $pathToFile
 		);
 
 		Mail::send('emails.mail_Certificate', $data, function($message) use ($card_user_name, $card_user_email) {
@@ -112,7 +114,8 @@ class EmailController extends Controller
 		//--------[OWNER]--------
 	    //--send email for USER--
 		$data = array(
-			'name_award' => $card_owner_name
+			'name_award' => $card_owner_name,
+			'pathToFile' => $pathToFile
 		);
 
 		Mail::send('emails.mail_Certificate', $data, function($message) use ($card_owner_name, $card_owner_email) {

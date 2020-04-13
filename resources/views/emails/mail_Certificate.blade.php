@@ -26,7 +26,7 @@
 </div>	
 
 <div class="container">
-  <img src="public/img/Award.jpg">
+  <img src="{{ $message->embed($pathToFile) }}">
   <div class="centered" style="color: black;">
   	<p style="text-decoration: underline;"><b>{{$name_award}}</b></p>
   	<p>We appreciate what you are doing for the comunity!</p>

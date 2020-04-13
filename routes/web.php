@@ -99,6 +99,8 @@ Route::patch('/update_card/{card_id}', 'PageController@update_card');
 //[ITEM]
 //[add new item]
 Route::post('/add_newItem', 'PageController@add_newItem');
+//[Delete item]
+Route::get('/delete_item/{item_id}', 'PageController@delete_Item');
 
 //---------------============= [EMAIL] =============---------------
 //======================================================================

@@ -5,7 +5,7 @@
 
 <!-- --------------------FIRST PAGE WRITING------------------ -->
 <div id="content_fullHeader">
-  <img id="front_img" src="public/img/img_vancouver.jpeg">
+  <img id="front_img" src="public/img/img_vancouver.jpg">
   <h1 id="theOne">
     <div class="typewrite" data-period="2000"
      data-type='[ "We are Strategy.", 
@@ -44,8 +44,12 @@
 
           <br>
           
-          <small>Follow an easy explanation how to use it:</small>
-          <h1>VIDEO HOW IT WORKS</h1>
+          <div style="text-align: center;">
+            <small style="display: block;">Follow an easy explanation how to use it:</small>
+            <video width="500" controls>
+              <source src="public/video/Site_Video.mp4" type="video/mp4">
+            </video>
+          </div>
     </div>
   </div>
 </div>

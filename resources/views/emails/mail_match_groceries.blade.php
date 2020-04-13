@@ -74,7 +74,7 @@
 	    	<h3>Hello {{$name_user}}!</h3>
 	    	<h4>Thank you to help the comunity!</h4>
 	    	<p>
-	    		Your choose a card of Mariana Dias Vilela<br>
+	    		Your choose a card of {{$name_owner}}<br>
 	    		We shared your name and phone number with {{$name_owner}} to this arrangement become easier; <br>
 	    		Hope this experience of helping other peopple will be beautiful.
 	    	</p>
