@@ -18,9 +18,9 @@
 
 <!-------------------- EXPLAIN THE PROJECT -------------------->
 <!-- ------------------------------------------------------- -->
-<div class="contents">
+<div id="service" class="contents">
   <div class="col-lg-12">
-    <h2 id="targetHeader"><b>HOW IT WORKS?</b></h2>
+    <h2 class="targetHeader"><b>HOW IT WORKS?</b></h2>
   </div>
 
   <!-- LINE TO DEVIDE -->
@@ -54,9 +54,9 @@
 
 <!------------------------- ABOUT US -------------------------->
 <!-- ------------------------------------------------------- -->
-<div id="aboutUs" class="contents">
+<div id="About" class="contents">
   <div class="col-lg-12">
-    <h2 id="targetHeader"><b>ABOUT US?</b></h2>
+    <h2 class="targetHeader"><b>ABOUT US?</b></h2>
   </div>
 
   <!-- LINE TO DEVIDE -->
@@ -87,9 +87,9 @@
 
 <!------------------------- CONTACT -------------------------->
 <!-- ------------------------------------------------------- -->
-<div class="container contents">
+<div id="contact" class="container contents">
   <div class="col-lg-12">
-    <h2 id="targetHeader"><b>CONTACT</b></h2>
+    <h2  class="targetHeader"><b>CONTACT</b></h2>
   </div>
 
     <!-- LINE TO DEVIDE -->

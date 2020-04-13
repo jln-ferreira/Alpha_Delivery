@@ -17,7 +17,7 @@
 <header>
     <nav id="navbar_header" class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
       <!-- LOGO -->
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/Alpha_Delivery">
         <img src="bird.jpg" alt="Logo" style="width:40px;">
       </a>
       <!-- END LOGO -->
@@ -30,17 +30,21 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/Alpha_Delivery">Home</a>
           </li>
+          
+          @guest
           <li class="nav-item">
-            <a class="nav-link" href="#">Service</a>
+            <a class="nav-link" href="#service">Service</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link " href="#">About</a>
+            <a class="nav-link " href="#About">About</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link " href="#">Contact</a>
+            <a class="nav-link " href="#contact">Contact</a>
           </li>
+          @endguest
+
           @auth
           <li class="nav-item ">
             <a style="color: white;" class="nav-link" href="{{ url('delivery') }}">Delivery</a>
@@ -73,14 +77,43 @@
 
 <body>
     <!-- ===================================================================================== -->
-    <!-- ------------------------------------[FIRST CONTENT]---------------------------------- -->
+    <!-- ---------------------------------------[CONTENT]------------------------------------- -->
     <div id="First_Content" class="container-flex">
                 
         @yield('First_Content')
 
     </div>
-       
+
+  <!-- ===================================================================================== -->
+  <!-- ---------------------------------------[CONTENT]------------------------------------- -->
+  <footer class="new_footer_area bg_color">
+    <div class="new_footer_top">
+        <div class="container-flex" style="text-align: center;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div style="">
+                        <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
+                        <div class="f_social_icon">
+                            <ul style="list-style: none; padding-left: 0px;" class="social-network social-circle">
+                             <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                             <li><a href="#" class="icoInstagram" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                             <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bg">
+            <div class="footer_bg_one"></div>
+            <div class="footer_bg_two"></div>
+        </div>
+    </div>
+    
+  </footer>
+
 </body>
+
 
     <!-- INCLUDE toastr [is the message box] -->
     @include('tools.toastr')
