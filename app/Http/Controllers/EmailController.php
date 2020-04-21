@@ -92,6 +92,10 @@ class EmailController extends Controller
 		$card_id->active = 3;
 		$card_id->save();
 
+		// add one more points
+    	$user_id->points = $user_id->points + 1;
+    	$user_id->save();
+
 		//SEND CERTIFICATE
     	//--------[VARIABLE]--------
     	$card_owner_name  = $card_id->users->name;

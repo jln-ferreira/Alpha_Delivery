@@ -53,6 +53,7 @@
           </div>
 
           <div class="modal-footer">
+            <div>Points: {{ auth()->user()->points }}</div>
             <button type="edit" class="btn btn-primary">Save changes</button>
             <a href="/Alpha_Delivery/logoutUser" style="color: white;" type="button" class="btn btn-danger">Logout</a>
           </div>
