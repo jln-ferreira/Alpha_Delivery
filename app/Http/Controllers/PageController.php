@@ -106,7 +106,7 @@ class PageController extends Controller
             'alert-type' => 'success'
         );
 
-     	return back()->with($notification);
+     	return view('page.work_myItens')->with($notification);
     }
     //-------------------------------------------
 
