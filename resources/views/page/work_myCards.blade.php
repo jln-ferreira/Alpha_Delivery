@@ -66,13 +66,14 @@
 				</form>
 			</tr>
 		</tbody>
-	</table>
+	</table>	
 
 <!-- ALL CARDS WITH A RIGHT DEADLINE -->
 <!-- ------------------------------- -->
+<div class="row">
 @foreach(auth()->user()->cards as $card)
 	@if((strtotime($card->deadline) - strtotime(date("Y-m-d")))/ 86400 >= 1)
-	<div class="col-md-4" style="display: inline-block; vertical-align: top; position: relative;">
+	<div class="col-md-4" style="vertical-align: top; position: relative;">
 		<div class="card border-secondary" style="min-height: 200px;">
 			<div class="card-header">
 				<div style="display: inline-block;">
@@ -109,7 +110,13 @@
 
 <!----------- CARD FOR ADD CARDS ------>
 <!-- ------------------------------- -->
+	<a href="#" class="col-md-4" style="vertical-align: top; ">
+		<div id="boxAdd" class="card" style="min-height: 200px; position: relative">
+			<i style="font-size: 80px; color: #40E0D0; position: absolute;  top: 30%; left: 40%;" class="fa fa-plus-circle"></i>
+		</div>
+	</a>
 
+</div>
 
 </div>
 @stop
