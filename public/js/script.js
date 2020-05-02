@@ -65,6 +65,26 @@ var TxtType = function(el, toRotate, period) {
 
 //-------------------------------MY CARD PAGE--------------------------------------
 //=================================================================================
+
+// --[MODEL NEW CARD]--
+$(document).ready(function() {
+    // show value of tips if selected Y
+    var boolTips = document.getElementById('tipsYN');
+    var valueTips = document.getElementById('valueTips');
+    
+    $("#tipsYN").change(function(){
+        if (boolTips.value == 'Yes') {
+            $("#divValueTips").fadeIn();
+            $("#divValueTips").css('display', 'inline-block');
+            valueTips.value = 0;
+        }
+        else{
+            $("#divValueTips").fadeOut();
+        }
+    });
+   
+});
+
 //----------------------------[DATA TABLE MY CARD]---------------------------------
 $(document).ready(function() {
 
