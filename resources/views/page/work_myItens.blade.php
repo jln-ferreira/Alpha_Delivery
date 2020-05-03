@@ -125,29 +125,38 @@
 	<!-- ------------------------------- -->
 	<div class="row">
 		<div class="col-md-12" style="vertical-align: top; position: relative;">
-			<div class="card box_card" style="min-height: 200px; border-color: lightgray;">
-				<div class="card-header" style=" background-color: #DC143C; color: white;">
-					<div style="display: inline-block;">
-						{{$card_id->id}}
+			<form method="POST" action="../update_card/{{$card_id->id}}">
+			@csrf
+			{{ method_field('PATCH') }} <!-- UPDATE -->
+				<div class="card box_card" style="min-height: 200px; border-color: lightgray;">
+					<div class="card-header" style=" background-color: #DC143C; color: white;">
+						<div style="display: inline-block;">
+							<input type="number" name="card_id" autocomplete="off" value="{{$card_id->id}}" disabled>
+						</div>
+						
+						<div data-toggle="tooltip" title="Tips!!" style="display: inline-block; float: right; color: #FFD700">
+							<i class="fa fa-btc"></i>
+						</div>
+						
 					</div>
-					
-					<div data-toggle="tooltip" title="Tips!!" style="display: inline-block; float: right; color: #FFD700">
-						<i class="fa fa-btc"></i>
-					</div>
-					
-				</div>
 
-				<div class="card-body text-secondary">
-					<h5 class="card-title">{{$card_id->name}}</h5>
-					<small class="card-text" style="margin-bottom: 0px">Itens:</small>
-					
-						<div class="badge badge-primary" >BANANAS</div>
-					
+					<div class="card-body text-secondary">
+						<input style="display: block; font-weight: bold; font-size: large; margin-bottom: 30px; width: 50%;" type="text" name="name" autocomplete="off" value="{{$card_id->name}}" required>
+						<div style="margin-top: 8px;">
+							<h4 class="card-text" style="display: inline-block; vertical-align: text-top;">Itens:</h4>
+							<div style="display: inline-block;">
+								@foreach($card_id->itens as $item)
+									<button style="padding: 3px; margin-bottom: 4px;" type="button" class="btn btn-primary">{{ $item->name }}<span class="badge" style="background-color: white; color: black; margin-left: 4px">{{ $item->quantity }}</span></button>
+								@endforeach
+								<a id="addItemPlus" href="#" style="color: #32CD32; " class="fa fa-plus-circle fa-lg"></a>
+							</div>
+						</div>
+					</div>
+					<div style="text-align: right; margin: 10px 4px 4px 0px">
+			    		<input type="date" name="deadline" min="{{date('Y-m-d')}}" max="{{date('Y-m-d', strtotime(' + 30 days'))}}" value="{{$card_id->deadline}}" required>
+			    	</div>
 				</div>
-				<div style="position: absolute; bottom: 0; right: 0; margin-right: 4px;">
-		    		<small>05052019</small>
-		    	</div>
-			</div>
+			</form>
 			<!-- footer -->
 			<div style="text-align-last: center;">
 				<a style="font-size: 30px; border-right: dotted; border-right-width: thin;" href="#"><i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i></a>

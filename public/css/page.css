@@ -86,8 +86,6 @@
   box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
-
-
 /*BOX TO ADD NEW CARD ANIMATION AND HOVER */
 #boxAdd:hover {
   transition: box-shadow .3s;
@@ -249,6 +247,10 @@
 }
 
 
+#addItemPlus:hover {
+  transition: color .3s;
+  color: green !important;
+}
 
 /*////////////////////////////////////////////////////////////////*/
 

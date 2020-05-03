@@ -15,6 +15,8 @@
 <!-- ------------[DATA TABLE]--------------- -->
 <div class="container">	
 
+	<hr>
+
 	<!-- ALL CARDS WITH A RIGHT DEADLINE -->
 	<!-- ------------------------------- -->
 	<div class="row">
