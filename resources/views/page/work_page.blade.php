@@ -9,7 +9,7 @@
 <!-- --------[HEADER] -->
 <div class="row">
     <div id="header_Work" class="col-lg-12">
-    	<a href="myCard" class="btn btn-success">My Cards</a>
+    	<a href="{{route('myCard')}}" class="btn btn-success">My Cards</a>
     </div> 
 </div>
 

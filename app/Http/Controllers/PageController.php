@@ -93,7 +93,7 @@ class PageController extends Controller
 		//CEATE A NEW CARD
 	    $newCard = new Card([
 			'user_id'  => auth()->user()->id,
-			'name'	   => $request->get('name'),
+			'name'	   => $request->get('nameNewCard'),
 			'tips'	   => $request->get('tips'),
 			'deadline' => $request->get('deadline')
     	]);
@@ -106,7 +106,7 @@ class PageController extends Controller
             'alert-type' => 'success'
         );
 
-     	return view('page.work_myItens')->with($notification);
+     	return back()->with($notification);
     }
     //-------------------------------------------
 

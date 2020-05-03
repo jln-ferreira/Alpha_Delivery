@@ -120,6 +120,41 @@
 	</table>
 
 
+
+	<!-- ONE CARD SELECTED WITH ALL ITENS -->
+	<!-- ------------------------------- -->
+	<div class="row">
+		<div class="col-md-12" style="vertical-align: top; position: relative;">
+			<div class="card box_card" style="min-height: 200px; border-color: lightgray;">
+				<div class="card-header" style=" background-color: #DC143C; color: white;">
+					<div style="display: inline-block;">
+						{{$card_id->id}}
+					</div>
+					
+					<div data-toggle="tooltip" title="Tips!!" style="display: inline-block; float: right; color: #FFD700">
+						<i class="fa fa-btc"></i>
+					</div>
+					
+				</div>
+
+				<div class="card-body text-secondary">
+					<h5 class="card-title">{{$card_id->name}}</h5>
+					<small class="card-text" style="margin-bottom: 0px">Itens:</small>
+					
+						<div class="badge badge-primary" >BANANAS</div>
+					
+				</div>
+				<div style="position: absolute; bottom: 0; right: 0; margin-right: 4px;">
+		    		<small>05052019</small>
+		    	</div>
+			</div>
+			<!-- footer -->
+			<div style="text-align-last: center;">
+				<a style="font-size: 30px; border-right: dotted; border-right-width: thin;" href="#"><i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i></a>
+				<a style="font-size: 30px;" href="#"><i class="trash_FW fa fa-trash fa-xs" title="Delete"></i></a>
+			</div>
+		</div>
+
 </div>
 
 @stop
