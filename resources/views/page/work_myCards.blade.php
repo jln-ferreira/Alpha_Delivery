@@ -28,8 +28,8 @@
 					<div style="display: inline-block;">
 						{{$card->id}}
 					</div>
-					@if($card->tips == 'Yes')
-					<div data-toggle="tooltip" title="Tips!!" style="display: inline-block; float: right; color: #FFD700">
+					@if($card->tips != 0)
+					<div data-toggle="tooltip" title="Tips: {{ $card->tips }}.00" style="display: inline-block; float: right; color: #FFD700">
 						<i class="fa fa-btc"></i>
 					</div>
 					@endif
@@ -48,8 +48,8 @@
 			</div>
 			<!-- footer -->
 			<div style="text-align-last: center;">
-				<a style="font-size: 30px; border-right: dotted; border-right-width: thin;" href="modify_card/{{$card->id}}"><i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i></a>
-				<a style="font-size: 30px;" href="delete_card/{{$card->id}}"><i class="trash_FW fa fa-trash fa-xs" title="Delete"></i></a>
+				<a style="font-size: 30px; border-right: dotted; border-right-width: thin;" href="{{ route('modify_card', ['card_id' => $card->id]) }}"><i class="pen_FW fa fa-pencil fa-xs" title="Edit"></i></a>
+				<a style="font-size: 30px;" href="{{ route('delete_card', ['card_id' => $card->id]) }}"><i class="trash_FW fa fa-trash fa-xs" title="Delete"></i></a>
 			</div>
 		</div>
 		@endif
@@ -95,7 +95,7 @@
 					</select>
 					<div id="divValueTips" style="display: none; padding-left: 30px;">
 						<label for="valueTips">Value: </label>
-						<input type="number" class="form-control" id="valueTips" name="valueTips" max="100" min="0" value="0" style="width: 50%; display: inline-block;">
+						<input type="number" class="form-control" id="valueTips" name="valueTips" max="100" min="0" style="width: 50%; display: inline-block;">
 					</div>
 				
 					<!-- DEADLINE -->

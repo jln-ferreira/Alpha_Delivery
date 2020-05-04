@@ -81,11 +81,42 @@
     z-index: 1020;
 }
 
+
+
 .box_card:hover{
   transition: box-shadow .3s;
   box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
+/*[FONT AWESOME IN DATA TBALE]*/
+/*[PEN]*/
+.pen_FW{
+  color: #1E90FF; 
+  padding-right: 10px;
+}
+.pen_FW:hover {
+  transition: color .3s;
+  color: #00008B;
+}
+
+/*[TRASH]*/
+.trash_FW{
+  color: red;
+  padding-left: 10px;
+}
+.trash_FW:hover {
+  transition: color .3s;
+  color: #8B0000;
+}
+
+/*[PLUS]*/
+.plus_FW{
+   color: #228B22;
+}
+
+
+
+/*-------------========[CARDS]========-------------*/
 /*BOX TO ADD NEW CARD ANIMATION AND HOVER */
 #boxAdd:hover {
   transition: box-shadow .3s;
@@ -187,32 +218,6 @@
 }
 /*FINISH BOX ANIMATION*/
 
-/*[FONT AWESOME IN DATA TBALE]*/
-/*[PEN]*/
-.pen_FW{
-  color: #1E90FF; 
-  padding-right: 10px;
-}
-.pen_FW:hover {
-  transition: color .3s;
-  color: #00008B;
-}
-
-/*[TRASH]*/
-.trash_FW{
-  color: red;
-  padding-left: 10px;
-}
-.trash_FW:hover {
-  transition: color .3s;
-  color: #8B0000;
-}
-
-/*[PLUS]*/
-.plus_FW{
-   color: #228B22;
-}
-
 /*------ [ SAVE BUTTON CARDS] ------*/
 .buttonSaveCard{
   
@@ -246,8 +251,21 @@
   transition: .05s
 }
 
-
+/*-------------========[ITENS]========-------------*/
+/*add item +*/
 #addItemPlus:hover {
+  transition: color .3s;
+  color: green !important;
+}
+
+
+/*click save yo update CARD*/
+.save_updateCard{
+  padding-right: 15px;
+  color: #32CD32;
+}
+
+.save_updateCard:hover{
   transition: color .3s;
   color: green !important;
 }

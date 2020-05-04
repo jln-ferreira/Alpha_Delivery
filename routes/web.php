@@ -90,11 +90,11 @@ Route::get('/myCard', 'PageController@myCardsPage')->name('myCard');
 Route::post('/add_newCard', 'PageController@add_newCard')->name('add_newCard');
 
 //[Delete card]
-Route::get('/delete_card/{card_id}', 'PageController@delete_Card');
+Route::get('/delete_card/{card_id}', 'PageController@delete_Card')->name('delete_card');
 
 //[Modify card] -> go to page
-Route::get('/modify_card/{card_id}', 'PageController@modify_card');
-Route::patch('/update_card/{card_id}', 'PageController@update_card');
+Route::get('/modify_card/{card_id}', 'PageController@modify_card')->name('modify_card');
+Route::patch('/update_card/{card_id}', 'PageController@update_card')->name('update_card');
 
 //[ITEM]
 //[add new item]

@@ -12,7 +12,7 @@ class Card extends Model
 	protected $table = 'cards';
 
     //this is what is fillable
-    protected $fillable = ['user_id', 'name', 'deadline', 'active'];
+    protected $fillable = ['user_id', 'name','tips', 'deadline', 'active'];
     //will not count timestamp (createdAt)
     public $timestamps = false;
 

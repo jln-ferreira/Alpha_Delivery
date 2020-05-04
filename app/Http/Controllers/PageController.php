@@ -94,9 +94,10 @@ class PageController extends Controller
 	    $newCard = new Card([
 			'user_id'  => auth()->user()->id,
 			'name'	   => $request->get('nameNewCard'),
-			'tips'	   => $request->get('tips'),
+			'tips'	   => $request->get('valueTips'),
 			'deadline' => $request->get('deadline')
     	]);
+
 		//save mySQL
      	$newCard->save();
 
@@ -148,10 +149,10 @@ class PageController extends Controller
     public function update_card(Request $request, Card $card_id){
 
         //use inputs to update mySQL
-        $card_id->name = $request->input('name');
-        $card_id->tips = $request->input('tips');
-        $card_id->deadline = $request->input('deadline');
-        $card_id->active = $request->input('active');
+        $card_id->name = $request->input('nameCard');
+        $card_id->tips = $request->input('valueTips');
+        $card_id->deadline = $request->input('deadlineCard');
+        $card_id->active = $request->input('activeCard');
         $card_id->save();
 
         //show toastr on top of the page (change Card)
