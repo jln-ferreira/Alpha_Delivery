@@ -95,7 +95,7 @@
 					</select>
 					<div id="divValueTips" style="display: none; padding-left: 30px;">
 						<label for="valueTips">Value: </label>
-						<input type="number" class="form-control" id="valueTips" name="valueTips" max="100" min="0" style="width: 50%; display: inline-block;">
+						<input type="number" class="form-control" id="valueTips" name="valueTips" max="100" min="1" value="1" style="width: 50%; display: inline-block;">
 					</div>
 				
 					<!-- DEADLINE -->

@@ -122,7 +122,7 @@ class PageController extends Controller
             'alert-type' => 'success'
         );
 
-        return back()->with($notification);
+        return redirect()->route('myCard')->with($notification);
     }
     //-------------------------------------------
 
@@ -171,10 +171,12 @@ class PageController extends Controller
 		//CEATE A NEW ITEM
 	    $newItem = new Item([
 			'card_id'  => $request->get('card_id'),
-			'name'	   => $request->get('name'),
-			'quantity' => $request->get('quantity'),
+			'name'	   => $request->get('nameNewItem'),
+			'quantity' => $request->get('quantityItem'),
 			'comment'  => $request->get('comment')
     	]);
+
+
 		//save mySQL
      	$newItem->save();
 
