@@ -100,7 +100,9 @@ Route::patch('/update_card/{card_id}', 'PageController@update_card')->name('upda
 //[add new item]
 Route::post('/add_newItem', 'PageController@add_newItem')->name('add_newItem');
 //[Delete item]
-Route::get('/delete_item/{item_id}', 'PageController@delete_Item');
+Route::get('/delete_item/{item_id}', 'PageController@delete_Item')->name('delete_item');
+//[Modify Item]
+Route::patch('/update_item/{item_id}', 'PageController@update_item')->name('update_item');
 
 //---------------============= [EMAIL] =============---------------
 //======================================================================

@@ -20,118 +20,18 @@
 </div> 
 
 <div class="container">
-
-	<!-- ------------[DATA TABLE MY CARD]--------------- -->
-	<table id="myCard_DT" class="table table-striped table-bordered" cellspacing="0" width="100%">
-		<thead>
-			<tr>
-				<th>Order</th>
-				<th>Description</th>
-				<th>Tips?</th>
-				<th>Deadline</th>
-				<th>Quantity</th>
-				<th>Status</th>
-				<th style="text-align:center;width:100px;">Add row
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<form method="POST" action="../update_card/{{$card_id->id}}">
-					@csrf
-    				{{ method_field('PATCH') }} <!-- UPDATE -->
-					<td>
-						<input type="number" name="card_id" autocomplete="off" value="{{$card_id->id}}" disabled>
-					</td>
-					<td>
-						<input type="text" name="name" autocomplete="off" value="{{$card_id->name}}" required>
-					</td>
-					<td>
-						<select name="tips">
-						  <option value="No" <?php if($card_id->tips == 'No') echo "selected"?>>No</option>
-						  <option value="Yes" <?php if($card_id->tips == 'Yes') echo "selected"?>>Yes</option>
-						</select>
-					</td>
-					<td>
-						<input type="date" name="deadline" min="{{date('Y-m-d')}}" value="{{$card_id->deadline}}" required>
-					</td>
-					<td>{{$card_id->itens->count()}}</td>
-					<td>
-						<select name="active">
-							<option value="0" <?php if($card_id->active == 0) echo "selected"?> >0 = DESATIVED</option>
-							<option value="1" <?php if($card_id->active == 1) echo "selected"?> >1 = ACTIVE</option>
-							<option value="2" <?php if($card_id->active == 2) echo "selected"?> >2 = CHOOSED BY</option>
-							<option value="3" <?php if($card_id->active == 3) echo "selected"?> >3 = DELIVERED</option>
-						</select>
-					</td>
-					<td style="text-align-last: center;">	
-						<button type="edit" class="save_FW btn btn-success"><i class="fa fa-save"></i></button>
-					</td>
-				</form>
-			</tr>
-		</tbody>
-	</table>
-	<!-- ----------------------------------------------- -->
-	<br><br><hr>
-	<div style="text-align: center;" class="col-lg-12">
-		<h2>My Itens:</h2>
-	</div> 
-	<!-- ------------[DATA TABLE ITENS]--------------- -->
-	<table id="myItens_DT" class="table table-striped table-bordered" cellspacing="0" width="100%">
-		<thead>
-			<tr>
-				<th>Order</th>
-				<th>Name</th>
-				<th>Quantity</th>
-				<th>Comment</th>
-				<th style="text-align:center;width:100px;">Add row
-					<i id="newItem_addRow" class="plus_FW fa fa-plus fa-xs"></i>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach($card_id->itens as $item)
-			<tr>
-				<td>{{$item->id}}</td>
-				<td>{{$item->name}}</td>
-				<td>{{$item->quantity}}</td>
-				<td>{{$item->comment}}</td>
-				<td style="text-align-last: center;">	
-					<a href="../delete_item/{{$item->id}}"><i class="trash_FW fa fa-trash fa-xs" title="Delete"></i></a>
-				</td>
-			</tr>
-			@endforeach
-			<!-- ADDING NEW ITEM -->
-			<tr id="new_Item_tr" style="display: none;">
-				<form method="POST" action="../add_newItem">
-					@csrf
-					<td></td>
-					<input type="hidden" name="card_id" value="{{$card_id->id}}">
-					<td><input type="text" name="name" required></td>
-					<td><input type="number" name="quantity" min="1" required></td>
-					<td><textarea cols="50" rows ="3" name="comment"></textarea></td>
-					<td style="text-align-last: center;">	
-						<button class="save_FW btn btn-success"><i class="fa fa-save"></i></button>
-					</td>
-				</form>
-			</tr>
-				 
-		</tbody>
-	</table>
-
-
-
 	<!-- ONE CARD SELECTED WITH ALL ITENS -->
 	<!-- ------------------------------- -->
 	<div class="row">
 		<div class="col-md-12" style="vertical-align: top; position: relative;">
-			<form method="POST" action="{{ route('update_card', ['card_id' => $card_id->id]) }}">
+			<form id="update_card" method="POST" action="{{ route('update_card', ['card_id' => $card_id->id]) }}">
 			@csrf
 			{{ method_field('PATCH') }} <!-- UPDATE -->
+			</form>
 				<div class="card box_card" style="border-color: lightgray;">
 					<div class="card-header" style=" background-color: #DC143C; color: white;">
 						<div style="display: inline-block;">
-							<input type="number" name="card_id" autocomplete="off" value="{{$card_id->id}}" disabled>
+							<input type="number" name="card_id" autocomplete="off" value="{{$card_id->id}}" form="update_card" disabled style="background-color: transparent; color: white; border: none; font-weight: bold;">
 						</div>
 						@if($card_id->tips != 0)
 							<div data-toggle="tooltip" title="Tips: {{ $card_id->tips }}.00" style="display: inline-block; float: right; color: #FFD700">
@@ -141,104 +41,80 @@
 					</div>
 
 					<div class="card-body text-secondary row">
-						<input class="col-md-6" style="display: block; font-weight: bold; font-size: large; margin-bottom: 30px; width: 50%;" type="text" name="nameCard" autocomplete="off" value="{{$card_id->name}}" required>
+						<input class="col-md-6" form="update_card" style="display: block; font-weight: bold; font-size: large; margin-bottom: 30px; width: 50%;" type="text" name="nameCard" autocomplete="off" value="{{$card_id->name}}" required>
 						<!-- TIPS -->
 						<div class="col-md-6" id="divValueTips" style="text-align: right;">
 							<label style="font-size: large" for="valueTips">Tip Value: </label>
-							<input type="number" class="form-control" id="valueTips" name="valueTips" max="100" min="0" value="{{ $card_id->tips }}" style="width: 13%;display: inline-block;">
+							<input type="number" form="update_card" class="form-control" id="valueTips" name="valueTips" max="100" min="0" value="{{ $card_id->tips }}" style="width: 13%;display: inline-block;">
 						</div>
 						<div style="margin-top: 8px;">
-							<h4 class="card-text" style="display: inline-block; vertical-align: text-top;">Itens:</h4>
+							<h4 class="card-text" style="display: inline-block;">Itens:</h4>
 							<div style="display: inline-block;">
+
+								<!-- EACH ITEM INSIDE THIS CARD -->
 								@foreach($card_id->itens as $item)
-									<button style="padding: 3px; margin-bottom: 4px;" type="button" class="btn btn-primary">{{ $item->name }}<span class="badge" style="background-color: white; color: black; margin-left: 4px">{{ $item->quantity }}</span></button>
+								<div class="dropdown" style="display: inline-block;">
+									  <button style="padding: 3px; margin-bottom: 4px;" type="button" class="btn btn-primary" data-toggle="dropdown">{{ $item->name }}<span class="badge" style="background-color: white; color: black; margin-left: 4px">{{ $item->quantity }}</span></button>
+								  <div class="dropdown-menu" style=" border-radius: 20px; padding: 15px; inline-size: max-content;">
+								  	<form method="POST" action="{{ route('update_item', ['item_id' => $item->id]) }}">
+										@csrf
+										{{ method_field('PATCH') }} <!-- UPDATE -->
+									    <li><input type="hidden" name="idModify" value="{{$item->card_id}}"></input></li>
+									    <small>Name Item:</small>
+									    <li><input type="text" name="nameModify" value="{{$item->name}}" class="form-control" required></input></li>
+									    <small>Quantity:</small>
+									    <li><input type="number" name="quantityModify" value="{{$item->quantity}}" class="form-control" min="1" max="100" required></input></li>
+									    <small>Price per Unit:</small>
+									    <li><input type="number" name="priceModify" value="	" class="form-control" min="1" max="100"></input></li>
+									    <li><textarea style="margin-top: 10px;" name="commentModify" value="{{$item->comment}}" class="form-control" id="" cols="20" rows="5" placeholder="Comments"></textarea></li>
+									    <!-- footer -->
+										<div style="text-align-last: center; margin-top: 15px;">
+											<button class="btn btn-success">
+											    <span class="icon is-small">
+											    	<i class="fa fa-check"></i>
+											    </span>
+											    <span>Save</span>
+											</button>
+											<a href="{{ route('delete_item', ['item_id' => $item->id]) }}" class="btn btn-danger is-outlined">
+											    <span>Delete</span>
+											    <span class="icon is-small">
+											      	<i class="fa fa-times"></i>
+											    </span>
+											</a>
+										</div>
+									<!-- </form> -->
+								  </div>
+								</div>
 								@endforeach
-								<a id="addItemPlus" href="#" style="color: #32CD32; " class="fa fa-plus-circle fa-lg" data-toggle="modal" data-target="#addItensModal"></a>
+								<!-- OPEN MODAL ADD ITEM -->
+								<a id="addItemPlus" style="color: #32CD32; " class="fa fa-plus-circle fa-lg" data-toggle="modal" data-target="#addItensModal"></a>
 							</div>
 						</div>
 					</div>
 					<div style="padding: 10px 20px 10px 20px">
 						<!-- STATUS OF THE CARD -->
-						<select name="activeCard">
+						<select name="activeCard" form="update_card">
 							<option value="0" <?php if($card_id->active == 0) echo "selected"?> >0 = DESATIVED</option>
 							<option value="1" <?php if($card_id->active == 1) echo "selected"?> >1 = ACTIVE</option>
 							<option value="2" <?php if($card_id->active == 2) echo "selected"?> >2 = CHOOSED BY</option>
 							<option value="3" <?php if($card_id->active == 3) echo "selected"?> >3 = DELIVERED</option>
 						</select>
 						<!-- deadline -->
-			    		<input style="float: right;" type="date" name="deadlineCard" min="{{date('Y-m-d')}}" max="{{date('Y-m-d', strtotime(' + 30 days'))}}" value="{{$card_id->deadline}}" required>
+			    		<input style="float: right;" form="update_card" type="date" name="deadlineCard" min="{{date('Y-m-d')}}" max="{{date('Y-m-d', strtotime(' + 30 days'))}}" value="{{$card_id->deadline}}" required>
 			    	</div>
 				</div>
 			
 				<!-- footer -->
-				<div style="text-align-last: center;">
-					<button style="justify-content: center;background-color: transparent;border: 0;margin: 0 auto;"><a style="font-size: 30px; border-right: dotted; border-right-width: thin;" href="#"><i class="fa fa-save save_updateCard"></i></a></button>
-					<a style="font-size: 30px;" href="{{ route('delete_card', ['card_id' => $card_id]) }}"><i class="trash_FW fa fa-trash fa-xs" title="Delete"></i></a>
+				<div style="text-align-last: center; margin-top: 20px;">
+					<input type="submit" form="update_card" value="&#10004; Save" class="btn btn-outline-success"> 
+					<a href="{{ route('delete_card', ['card_id' => $card_id]) }}" class="btn btn-outline-danger">&#10060; Delete</a>
 				</div>
 			</form>
 		</div>
-
-</div>
-
-<!-- ----------------------------------MODAL TO ADD ITEMS ------------------------------------>
-<div class="modal fade" id="addItensModal" tabindex="-1" role="dialog" aria-labelledby="addItensModal_Label" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-    	<div class="modal-content">
-      		<div class="modal-header" style=" background-color: #0069d9;">
-        		<h5 class="modal-title" id="personalInfo_Label" style=" color: white;">New Item:</h5>
-        		<button type="button" class="close" data-dismiss="modal" aria-label="Close" style=" color: white;">
-          			<span aria-hidden="true">&times;</span>
-        		</button>
-    		</div>
-    		<div class="modal-body">
-  			<!------------------------------ INSIDE MODAL ----------------------------->
-				<form method="POST" action="../add_newItem">
-				@csrf
-					<div class="container">
-	        			<div class="row">
-	        				<div class="form-group col-lg-10">
-	        					<input type="hidden" name="card_id" value="{{$card_id->id}}" style="background-color: transparent; border: hidden; color: white; font-size: x-large; font-weight: bold;">
-	        					<input type="text" class="form-control" id="nameNewItem" name="nameNewItem" placeholder="Item Name" required>
-							</div>
-							<a class="btn btn-info" style="height: 40px;width: 67px;"><i class="fa fa-bars" style="color: white;"></i></a>
-	        			</div>
-	        			<div class="row">
-	        				<div class="form-group col-lg-3">
-	        					<label for="quantityItem">Quantity</label>
-								<input type="number" class="form-control" id="quantityItem" name="quantityItem" min="1" value="1" required>
-							</div>
-							<div class="form-group col-lg-4">
-	        					<label for="quantityItem">Average price</label>
-								<input type="number" class="form-control" id="avgPrice" name="avgValue">
-							</div>
-							<div class="form-group col-lg-5">
-								<label for="quantityItem">Final price</label>
-								<input type="number" class="form-control" id="finalPrice" name="finalPrice" disabled>
-							</div>	
-	        			</div>
-	        		</div>
-					<!-- COMMENTS -->
-					<div class="row">
-						<div class="col-lg-12">
-							<textarea class="form-control" cols="50" rows ="3" name="comment" placeholder="Comments"></textarea>
-						</div>
-					</div>
-
-					<button class="modal-footer"  style="justify-content: center;background-color: transparent;border: 0;margin: 0 auto;">
-						<div>
-							<div class="buttonSaveCard">
-								<div class="iconSave">
-									<i class="fa fa-floppy-o"></i>
-								</div>
-							</div>
-						</div>
-					</button>
-				</form>
-    		</div>
-    	</div>
 	</div>
 </div>
-<!-- END MODAL -->
-@stop
 
-			
+<!------ modal ADD ITEM  ------>
+@include('page.model.model_addItem')
+
+@stop		

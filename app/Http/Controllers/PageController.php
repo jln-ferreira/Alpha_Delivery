@@ -145,14 +145,16 @@ class PageController extends Controller
     }
     //-------------------------------------------
 
+    // --------------------------[MY ITEM PAGE]---------------------------
+    //--------------------------------------------------------------------
     //------ [UPDATE Cards] -> Button save
     public function update_card(Request $request, Card $card_id){
 
         //use inputs to update mySQL
-        $card_id->name = $request->input('nameCard');
-        $card_id->tips = $request->input('valueTips');
+        $card_id->name     = $request->input('nameCard');
+        $card_id->tips     = $request->input('valueTips');
         $card_id->deadline = $request->input('deadlineCard');
-        $card_id->active = $request->input('activeCard');
+        $card_id->active   = $request->input('activeCard');
         $card_id->save();
 
         //show toastr on top of the page (change Card)
@@ -204,5 +206,23 @@ class PageController extends Controller
         return back()->with($notification);
     }
     //-------------------------------------------
- 
+     //------ [UPDATE Cards] -> Button save
+    public function update_item(Request $request, Item $item_id){
+
+        //use inputs to update mySQL
+        $item_id->card_id = $request->input('idModify');
+        $item_id->name = $request->input('nameModify');
+        $item_id->quantity = $request->input('quantityModify');
+        $item_id->comment = $request->input('commentModify');
+        $item_id->save();
+
+        //show toastr on top of the page (change Card)
+        $notification = array(
+            'message' => 'Item updated!',
+            'alert-type' => 'info'
+        );
+
+        //$studentId->update($request->all());
+        return back()->with($notification);
+    }
 }
