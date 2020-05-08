@@ -117,4 +117,5 @@
 <!------ modal ADD ITEM  ------>
 @include('page.model.model_addItem')
 
+<script src="<?php echo asset('public/js/API_Grocery.js')?>" type="text/javascript"></script>
 @stop		
