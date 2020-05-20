@@ -18,7 +18,7 @@
     <nav id="navbar_header" class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
       <!-- LOGO -->
       <a class="navbar-brand" href="/Alpha_Delivery">
-        <img src="bird.jpg" alt="Logo" style="width:40px;">
+        <img src="<?php echo asset('public/img/logo.png')?>" alt="Logo" style="width:40px;">
       </a>
       <!-- END LOGO -->
       <!-- Toggler/collapsibe Button -->

@@ -61,7 +61,7 @@
 										{{ method_field('PATCH') }} <!-- UPDATE -->
 									    <li><input type="hidden" name="idModify" value="{{$item->card_id}}"></input></li>
 									    <small>Name Item:</small>
-									    <li><input type="text" name="nameModify" value="{{$item->name}}" class="form-control" required></input></li>
+									    <li><input type="text" name="nameModify" value="{{$item->name}}" class="form-control fillItem" required></input></li>
 									    <small>Quantity:</small>
 									    <li><input type="number" name="quantityModify" value="{{$item->quantity}}" class="form-control" min="1" max="100" required></input></li>
 									    <small>Price per Unit:</small>

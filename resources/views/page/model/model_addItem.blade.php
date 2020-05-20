@@ -1,3 +1,4 @@
+
 <!-- ----------------------------------MODAL TO ADD ITEMS ------------------------------------>
 <div class="modal fade" id="addItensModal" tabindex="-1" role="dialog" aria-labelledby="addItensModal_Label" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -14,9 +15,9 @@
         @csrf
           <div class="container">
                 <div class="row">
-                  <div class="form-group col-lg-10">
+                  <div class="form-group col-lg-10 ">
                     <input type="hidden" name="card_id" value="{{$card_id->id}}" style="background-color: transparent; border: hidden; color: white; font-size: x-large; font-weight: bold;">
-                    <input type="text" class="form-control" id="nameNewItem" name="nameNewItem" placeholder="Item Name" required>
+                    <input type="text" class="form-control fill_newitem"  name="nameNewItem" placeholder="Item Name" required autocomplete="off">
               </div>
               <a class="btn btn-info" style="height: 40px;width: 67px;"><i class="fa fa-bars" style="color: white;"></i></a>
                 </div>
@@ -57,3 +58,45 @@
   </div>
 </div>
 <!------------------------- END MODAL TO ADD ITEMS --------------------------->
+<!-- <script>
+    $( function() {
+    var projects = [
+      {
+        label: "Apples",
+        desc: "Apples"
+      },
+      {
+        label: "Arugula",
+        desc: "Arugula"
+      },
+      {
+        label: "Avocado",
+        desc: "Avocado"
+      }
+    ];
+ 
+    $( ".fill_newitem" ).autocomplete({
+      minLength: 0,
+      source: projects,
+      focus: function( event, ui ) {
+        $( ".fill_newitem" ).val( ui.item.label );
+        return false;
+      },
+      select: function( event, ui ) {
+        $( ".fill_newitem" ).val( ui.item.label );
+        return false;
+      }
+    })
+    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+      return $( "<li>" )
+        .append( "<div>" + item.label + "</div>" )
+        .appendTo( ul );
+    };
+  } );
+  </script>
+
+  <style>
+    .ui-front {
+      z-index: 9999999 !important;
+    }
+  </style> -->

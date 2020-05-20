@@ -1,3 +1,4 @@
+
 var API_grocery = [
     {
         id: 1, 
@@ -375,6 +376,7 @@ var API_grocery = [
 ]
 
 console.log(API_grocery[0].itens[0].name);
+
 
 
 
